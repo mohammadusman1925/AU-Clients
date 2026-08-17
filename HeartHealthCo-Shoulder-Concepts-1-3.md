@@ -29,9 +29,6 @@ During the day, the person can manage the discomfort by staying busy. At night, 
 **Why it may work**
 Sleep disruption creates more urgency than general pain relief. It is repeated every night, emotionally exhausting and closely connected to the product's hands-free use. Night pain and complicated pillow arrangements are among the most common community discussions.
 
-**Best formats**
-*30-second nighttime UGC, dark-bedroom static and a longer bedtime-routine advertorial.*
-
 ---
 
 **Reference:** Community sleep discussion
@@ -55,9 +52,6 @@ The problem begins as a small ache. Gradually, fastening a bra, brushing hair, a
 **Why it may work**
 Specific activities produce stronger self-recognition than "shoulder pain." The bra and hair examples are especially relevant to women aged 45 and older, which closely matches Heart Health's likely ICP. A recent community post celebrating the ability to fasten a bra received strong positive engagement.
 
-**Best formats**
-*Female UGC diary, before-and-after movement demonstration and static checklist.*
-
 ---
 
 **Reference:** Bra milestone discussion
@@ -80,9 +74,6 @@ The shoulder carries a dull ache during normal activity. Then the person reaches
 
 **Why it may work**
 The unexpected sharp movement is highly recognizable and visually dramatic. It creates a strong video pattern interrupt without needing an exaggerated medical claim. Community members frequently describe these sudden pains during ordinary, unplanned movements.
-
-**Best formats**
-*Fast montage of three accidental movements followed by a product demonstration.*
 
 ---
 

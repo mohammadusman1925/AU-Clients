@@ -29,9 +29,6 @@ The person has a better day and walks farther, exercises harder or completes mor
 **Why it may work**
 The boom-and-bust cycle is common in chronic pain communities. It creates a recurring use case and supports retention because the product is positioned as a routine, not a one-time rescue.
 
-**Best formats**
-*Two-day UGC sequence: good day versus next-morning flare.*
-
 ---
 
 **Reference:** Hip community patterns summarised in the research
@@ -53,9 +50,6 @@ Putting on socks, stepping into trousers, tying shoes and getting into the car b
 
 **Why it may work**
 Like the shoulder bra angle, socks and shoes are concrete and instantly recognizable. Dressing difficulties generate substantial community discussion because they expose the practical cost of reduced hip movement.
-
-**Best formats**
-*Morning-routine UGC and mobility diary.*
 
 ---
 

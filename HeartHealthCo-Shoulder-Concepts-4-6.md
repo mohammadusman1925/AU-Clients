@@ -29,9 +29,6 @@ The constant ache begins to decrease, so the person assumes the shoulder is reco
 **Why it may work**
 This speaks to people who are partially improved but still frustrated. They are more solution-aware and may be ready to try something new because their original pain solution did not restore function.
 
-**Best formats**
-*Range-of-motion diary, educational animation and customer story.*
-
 ---
 
 **Reference:** Shoulder community patterns summarised in the research
@@ -53,9 +50,6 @@ First, the person stops sleeping on one side. Then carrying groceries, preparing
 
 **Why it may work**
 Loss aversion is more powerful than a generic relief promise. The public Facebook shoulder group repeatedly frames the problem as life becoming smaller and normal activities no longer feeling easy.
-
-**Best formats**
-*Emotional long-form ad and day-in-the-life UGC.*
 
 ---
 
@@ -79,9 +73,6 @@ The person switches to a front-clasp bra, spray deodorant, pre-cut vegetables an
 
 **Why it may work**
 Independence is a powerful emotional endpoint. The product's wearable design is particularly relevant to people who live alone or cannot rely on daily assistance. These exact workarounds appear repeatedly in frozen-shoulder discussions.
-
-**Best formats**
-*Day-in-the-life UGC showing five frustrating workarounds.*
 
 ---
 

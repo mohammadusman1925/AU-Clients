@@ -29,9 +29,6 @@ The person manages walking reasonably well, but office chairs and car seats crea
 **Why it may work**
 Driving and desk work are high-frequency triggers that competitors do not own strongly. People with hip impingement repeatedly identify sitting and driving as their biggest everyday problems.
 
-**Best formats**
-*Office-to-car UGC and "three chairs that trigger discomfort" static.*
-
 ---
 
 **Reference:** Sitting and driving discussion
@@ -55,9 +52,6 @@ Sleeping on the affected side creates pressure. Sleeping on the other side may p
 **Why it may work**
 As with shoulder discomfort, sleep creates immediate urgency and a repeatable product ritual. Nighttime hip pain and side-sleeping difficulty appear throughout hip-pain communities.
 
-**Best formats**
-*Bedroom UGC and pillow-position comparison static.*
-
 ---
 
 **Reference:** Hip night-pain discussion
@@ -80,9 +74,6 @@ The person completes the flight, drives to the beach and walks around sightseein
 
 **Why it may work**
 This sells the ability to participate in life rather than simply promising relief. It is aspirational, emotional and particularly relevant to active adults who do not identify as disabled.
-
-**Best formats**
-*Travel UGC, packing demonstration and creator diary.*
 
 ---
 
