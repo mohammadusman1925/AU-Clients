@@ -1,0 +1,1226 @@
+<title>Shoulder & Hip VOC Research</title>
+<style>
+  @font-face {
+    font-family: 'Display';
+    src: local('Georgia'), local('Times New Roman'), local('serif');
+  }
+
+  :root {
+    --ground: #f2f0eb;
+    --surface: #ffffff;
+    --surface-alt: #eae7e0;
+    --text: #1c1917;
+    --text-2: #57534e;
+    --text-3: #a8a29e;
+    --rule: #d6d3cd;
+    --rule-light: #e7e5df;
+    --accent-shoulder: #2563a0;
+    --accent-shoulder-soft: #e8f0f8;
+    --accent-hip: #a0522d;
+    --accent-hip-soft: #f5ece5;
+    --count-bg: #1c1917;
+    --count-fg: #f2f0eb;
+    --rank-bg: #2563a0;
+    --rank-bg-hip: #a0522d;
+    --badge-pain: #b91c1c;
+    --badge-pain-bg: #fde8e8;
+    --badge-scene: #0f766e;
+    --badge-scene-bg: #e6f5f3;
+    --badge-sleep: #4338ca;
+    --badge-sleep-bg: #eae8fb;
+    --badge-emotion: #7e22ce;
+    --badge-emotion-bg: #f3e8fb;
+    --badge-fail: #92400e;
+    --badge-fail-bg: #fef3c7;
+    --tab-active: var(--text);
+    --tab-inactive: var(--text-3);
+    --tab-border: var(--text);
+    --shadow: 0 1px 2px rgba(28,25,23,.06);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #121110;
+      --surface: #1c1a17;
+      --surface-alt: #252320;
+      --text: #e7e5e0;
+      --text-2: #a8a29e;
+      --text-3: #6b6560;
+      --rule: #2e2b28;
+      --rule-light: #232120;
+      --accent-shoulder: #60a5fa;
+      --accent-shoulder-soft: #1a2332;
+      --accent-hip: #d4845a;
+      --accent-hip-soft: #2a1f18;
+      --count-bg: #e7e5e0;
+      --count-fg: #121110;
+      --rank-bg: #60a5fa;
+      --rank-bg-hip: #d4845a;
+      --badge-pain: #f87171;
+      --badge-pain-bg: #2a1818;
+      --badge-scene: #34d399;
+      --badge-scene-bg: #182a25;
+      --badge-sleep: #818cf8;
+      --badge-sleep-bg: #1a1a30;
+      --badge-emotion: #c084fc;
+      --badge-emotion-bg: #221a2e;
+      --badge-fail: #fbbf24;
+      --badge-fail-bg: #2a2218;
+      --tab-active: var(--text);
+      --tab-inactive: var(--text-3);
+      --tab-border: var(--text);
+      --shadow: 0 1px 3px rgba(0,0,0,.25);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #121110;
+    --surface: #1c1a17;
+    --surface-alt: #252320;
+    --text: #e7e5e0;
+    --text-2: #a8a29e;
+    --text-3: #6b6560;
+    --rule: #2e2b28;
+    --rule-light: #232120;
+    --accent-shoulder: #60a5fa;
+    --accent-shoulder-soft: #1a2332;
+    --accent-hip: #d4845a;
+    --accent-hip-soft: #2a1f18;
+    --count-bg: #e7e5e0;
+    --count-fg: #121110;
+    --rank-bg: #60a5fa;
+    --rank-bg-hip: #d4845a;
+    --badge-pain: #f87171;
+    --badge-pain-bg: #2a1818;
+    --badge-scene: #34d399;
+    --badge-scene-bg: #182a25;
+    --badge-sleep: #818cf8;
+    --badge-sleep-bg: #1a1a30;
+    --badge-emotion: #c084fc;
+    --badge-emotion-bg: #221a2e;
+    --badge-fail: #fbbf24;
+    --badge-fail-bg: #2a2218;
+    --tab-active: var(--text);
+    --tab-inactive: var(--text-3);
+    --tab-border: var(--text);
+    --shadow: 0 1px 3px rgba(0,0,0,.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 960px; margin: 0 auto; padding: 48px 24px 100px; }
+
+  /* HEADER */
+  .hdr { margin-bottom: 40px; }
+  .hdr-eyebrow {
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .hdr h1 {
+    font-family: Display, Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--text);
+    text-wrap: balance;
+    margin-bottom: 10px;
+  }
+  .hdr-desc {
+    font-size: 14px;
+    color: var(--text-2);
+    max-width: 640px;
+    line-height: 1.55;
+  }
+
+  /* TABS */
+  .tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 32px;
+    position: sticky;
+    top: 0;
+    background: var(--ground);
+    z-index: 10;
+    padding-top: 4px;
+  }
+  .tab {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--tab-inactive);
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-bottom: 2px solid transparent;
+    transition: color .15s, border-color .15s;
+    font-family: inherit;
+    letter-spacing: .01em;
+  }
+  .tab:hover { color: var(--text-2); }
+  .tab.active {
+    color: var(--tab-active);
+    border-bottom-color: var(--tab-border);
+  }
+  .tab .tab-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+  .tab .dot-shoulder { background: var(--accent-shoulder); }
+  .tab .dot-hip { background: var(--accent-hip); }
+
+  /* PANELS */
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  /* CATEGORY */
+  .cat {
+    margin-bottom: 36px;
+  }
+  .cat-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .cat-title {
+    font-family: Display, Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .cat-tag {
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+  .tag-pain { color: var(--badge-pain); background: var(--badge-pain-bg); }
+  .tag-scene { color: var(--badge-scene); background: var(--badge-scene-bg); }
+  .tag-sleep { color: var(--badge-sleep); background: var(--badge-sleep-bg); }
+  .tag-emotion { color: var(--badge-emotion); background: var(--badge-emotion-bg); }
+  .tag-fail { color: var(--badge-fail); background: var(--badge-fail-bg); }
+
+  /* TABLE */
+  .tw { overflow-x: auto; border-radius: 5px; border: 1px solid var(--rule); box-shadow: var(--shadow); }
+  table { width: 100%; border-collapse: collapse; background: var(--surface); font-variant-numeric: tabular-nums; }
+  thead th {
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    font-weight: 600;
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--rule);
+    background: var(--surface-alt);
+  }
+  thead th:nth-child(2) { text-align: center; width: 56px; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--rule-light); vertical-align: top; font-size: 14px; }
+  tbody tr:last-child td { border-bottom: none; }
+  .pc { font-weight: 600; color: var(--text); min-width: 160px; }
+  .cc {
+    text-align: center;
+    font-weight: 800;
+    font-family: Display, Georgia, serif;
+    font-size: 15px;
+    min-width: 44px;
+  }
+  .cc-s { color: var(--accent-shoulder); }
+  .cc-h { color: var(--accent-hip); }
+  .qc {
+    color: var(--text-2);
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .qc::before, .qc::after { font-weight: 700; font-style: normal; }
+  .qc-s::before, .qc-s::after { color: var(--accent-shoulder); }
+  .qc-h::before, .qc-h::after { color: var(--accent-hip); }
+  .qc::before { content: '\201C'; }
+  .qc::after { content: '\201D'; }
+
+  /* TOP 20 */
+  .top-section {
+    margin-top: 44px;
+    padding: 28px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+  }
+  .top-section h2 {
+    font-family: Display, Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .top-sub { font-size: 13px; color: var(--text-3); margin-bottom: 18px; }
+  .top-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  @media (max-width: 600px) { .top-grid { grid-template-columns: 1fr; } }
+  .top-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background: var(--surface-alt);
+  }
+  .top-rank {
+    font-family: Display, Georgia, serif;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--count-fg);
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .top-rank-s { background: var(--accent-shoulder); color: #fff; }
+  .top-rank-h { background: var(--accent-hip); color: #fff; }
+  .top-phrase { font-weight: 600; font-size: 13px; color: var(--text); flex: 1; }
+  .top-count { font-family: Display, Georgia, serif; font-size: 14px; font-weight: 800; }
+  .top-count-s { color: var(--accent-shoulder); }
+  .top-count-h { color: var(--accent-hip); }
+
+  /* QUOTES */
+  .quotes-section { margin-top: 36px; }
+  .quotes-section h3 {
+    font-family: Display, Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+  .quote-cards { display: grid; gap: 8px; }
+  .qcard {
+    padding: 12px 16px;
+    background: var(--surface);
+    border: 1px solid var(--rule-light);
+    border-radius: 4px;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--text-2);
+    line-height: 1.55;
+    border-left: 3px solid var(--rule);
+  }
+  .qcard-s { border-left-color: var(--accent-shoulder); }
+  .qcard-h { border-left-color: var(--accent-hip); }
+  .qcard cite {
+    display: block;
+    font-style: normal;
+    font-size: 11px;
+    color: var(--text-3);
+    margin-top: 4px;
+    letter-spacing: .02em;
+  }
+
+  /* SOURCES */
+  .sources-section { margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--rule); }
+  .sources-section h3 {
+    font-family: Display, Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+  .source-group { margin-bottom: 18px; }
+  .source-group-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: 6px;
+  }
+  .source-links { display: flex; flex-direction: column; gap: 3px; }
+  .source-links a {
+    font-size: 13px;
+    color: var(--text-2);
+    text-decoration: none;
+    line-height: 1.5;
+    word-break: break-all;
+  }
+  .source-links a:hover { color: var(--text); text-decoration: underline; }
+  .slink-s a:hover { color: var(--accent-shoulder); }
+  .slink-h a:hover { color: var(--accent-hip); }
+</style>
+
+<div class="wrap">
+  <div class="hdr">
+    <div class="hdr-eyebrow">VOC Research / AU Client</div>
+    <h1>What Real People Say About Shoulder Pain & Hip Pain</h1>
+    <p class="hdr-desc">Verbatim language mined from 50+ forum threads across health forums, BoneSmart, Patient.info, HealthUnlocked, Gransnet, Mumsnet, Amazon reviews, and recovery blogs. Every phrase frequency-counted and organized for ad angle development.</p>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('shoulder')"><span class="tab-dot dot-shoulder"></span>Shoulder Belt</button>
+    <button class="tab" onclick="switchTab('hip')"><span class="tab-dot dot-hip"></span>Hip Belt</button>
+  </div>
+
+  <!-- ===================== SHOULDER PANEL ===================== -->
+  <div id="panel-shoulder" class="panel active">
+
+    <!-- PAIN DESCRIPTIONS -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Pain Descriptions</span>
+        <span class="cat-tag tag-pain">Pain</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Dull ache / constant dull ache</td><td class="cc cc-s">14</td><td class="qc qc-s">It's a dull ache at rest and a pinching sensation when moved</td></tr>
+          <tr><td class="pc">Sharp pain</td><td class="cc cc-s">12</td><td class="qc qc-s">Pressing is a really sharp pain, even the physio exercises hurt</td></tr>
+          <tr><td class="pc">Constant / unrelenting pain</td><td class="cc cc-s">11</td><td class="qc qc-s">constant pain felt almost inhumane</td></tr>
+          <tr><td class="pc">Stabbing pain</td><td class="cc cc-s">8</td><td class="qc qc-s">burning, aching, stabbing, sharp, dull, deep in the joint</td></tr>
+          <tr><td class="pc">Snapping / cracking / popping</td><td class="cc cc-s">8</td><td class="qc qc-s">As I rotate my arm it snaps, crackles, and pops</td></tr>
+          <tr><td class="pc">Radiating down the arm</td><td class="cc cc-s">7</td><td class="qc qc-s">cold ice shooting down my arm through my elbow into my fingers</td></tr>
+          <tr><td class="pc">Burning sensation</td><td class="cc cc-s">6</td><td class="qc qc-s">burning, aching, stabbing</td></tr>
+          <tr><td class="pc">Pinching sensation</td><td class="cc cc-s">6</td><td class="qc qc-s">a pinching sensation when moved</td></tr>
+          <tr><td class="pc">Numbness / tingling</td><td class="cc cc-s">5</td><td class="qc qc-s">a sort of inflammation feeling, but it also felt numb</td></tr>
+          <tr><td class="pc">Knife-like pain</td><td class="cc cc-s">3</td><td class="qc qc-s">feel like a knife sliding under the ball</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- CONDITIONS -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Conditions / Diagnoses</span>
+        <span class="cat-tag tag-pain">Medical</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Rotator cuff tear / injury</td><td class="cc cc-s">15</td><td class="qc qc-s">there is a tear (confirmed via MRI)</td></tr>
+          <tr><td class="pc">Frozen shoulder / adhesive capsulitis</td><td class="cc cc-s">14</td><td class="qc qc-s">suddenly suffering from frozen shoulder (adhesive capsulitis)</td></tr>
+          <tr><td class="pc">Shoulder impingement</td><td class="cc cc-s">10</td><td class="qc qc-s">started trying to pull my shoulders back and down. Doing this seemed to cause an impingement</td></tr>
+          <tr><td class="pc">Bursitis</td><td class="cc cc-s">6</td><td class="qc qc-s">Referenced across multiple medical forum threads</td></tr>
+          <tr><td class="pc">Tendinitis / tendonitis</td><td class="cc cc-s">6</td><td class="qc qc-s">rotator cuff tendinopathy is the most common reason people seek care</td></tr>
+          <tr><td class="pc">Arthritis / osteoarthritis</td><td class="cc cc-s">5</td><td class="qc qc-s">5 years of chronic shoulder pain and 15 years of osteoarthritis symptoms</td></tr>
+          <tr><td class="pc">Labrum tear</td><td class="cc cc-s">4</td><td class="qc qc-s">chronic shoulder pain that wouldn't go away -- labrum tear</td></tr>
+          <tr><td class="pc">AC joint pain</td><td class="cc cc-s">4</td><td class="qc qc-s">The pain is felt predominantly over the top of the AC joint</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- SCENES -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Scenes / Daily Activities Disrupted</span>
+        <span class="cat-tag tag-scene">Scene</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Putting on a shirt / getting dressed</td><td class="cc cc-s">12</td><td class="qc qc-s">intense enough that I get tears in my eyes when I put on a shirt</td></tr>
+          <tr><td class="pc">Reaching overhead / reaching for things</td><td class="cc cc-s">11</td><td class="qc qc-s">could not raise it fully above my head without pain</td></tr>
+          <tr><td class="pc">Washing / drying hair</td><td class="cc cc-s">9</td><td class="qc qc-s">hard to put on a coat or even blow dry my hair</td></tr>
+          <tr><td class="pc">Lifting / carrying things</td><td class="cc cc-s">8</td><td class="qc qc-s">lifting a gallon of milk, reaching into a cabinet become difficult or impossible</td></tr>
+          <tr><td class="pc">Brushing hair</td><td class="cc cc-s">7</td><td class="qc qc-s">Simple activities like washing my hair, changing clothes, opening doors</td></tr>
+          <tr><td class="pc">Driving / fastening seatbelt</td><td class="cc cc-s">7</td><td class="qc qc-s">vacuum, reach to clean, fasten a seatbelt, drive a car</td></tr>
+          <tr><td class="pc">Putting on a coat / jacket</td><td class="cc cc-s">6</td><td class="qc qc-s">struggling to put a jacket on</td></tr>
+          <tr><td class="pc">Reaching behind back</td><td class="cc cc-s">6</td><td class="qc qc-s">unable to reach behind my back</td></tr>
+          <tr><td class="pc">Vacuuming / cleaning</td><td class="cc cc-s">5</td><td class="qc qc-s">vacuum, reach to clean</td></tr>
+          <tr><td class="pc">Playing catch with kids</td><td class="cc cc-s">3</td><td class="qc qc-s">not being able to play catch with my sons very well</td></tr>
+          <tr><td class="pc">Unfastening bra</td><td class="cc cc-s">3</td><td class="qc qc-s">unclip my bra strap</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- MOMENTS -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Moments</span>
+        <span class="cat-tag tag-scene">When</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Waking up / first thing in morning</td><td class="cc cc-s">10</td><td class="qc qc-s">woke up one morning in bad pain</td></tr>
+          <tr><td class="pc">Middle of the night</td><td class="cc cc-s">9</td><td class="qc qc-s">at 1am I woke up from one of the worst shoulder pains</td></tr>
+          <tr><td class="pc">During / after exercise</td><td class="cc cc-s">8</td><td class="qc qc-s">pain was most intense right as soon as I stopped a workout</td></tr>
+          <tr><td class="pc">Reaching for something</td><td class="cc cc-s">7</td><td class="qc qc-s">I would notice the pain only when I reached behind me</td></tr>
+          <tr><td class="pc">Getting dressed in the morning</td><td class="cc cc-s">6</td><td class="qc qc-s">I get tears in my eyes when I put on a shirt</td></tr>
+          <tr><td class="pc">After sitting at desk</td><td class="cc cc-s">5</td><td class="qc qc-s">considerable lifting, pushing, bending, and computer work</td></tr>
+          <tr><td class="pc">After repetitive movements</td><td class="cc cc-s">5</td><td class="qc qc-s">The more I do the worse and longer it hurts</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- SLEEP -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Sleep Disruption</span>
+        <span class="cat-tag tag-sleep">Sleep</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Can't sleep on affected side</td><td class="cc cc-s">14</td><td class="qc qc-s">I cannot sleep on either side as it's too sore</td></tr>
+          <tr><td class="pc">Wakes up multiple times per night</td><td class="cc cc-s">11</td><td class="qc qc-s">waking up every night in the middle of the night with shoulder pain</td></tr>
+          <tr><td class="pc">Pain wakes them from sleep</td><td class="cc cc-s">10</td><td class="qc qc-s">pain woke me nightly</td></tr>
+          <tr><td class="pc">Sleepless nights</td><td class="cc cc-s">8</td><td class="qc qc-s">sleepless nights due to the pain</td></tr>
+          <tr><td class="pc">Need special pillow arrangement</td><td class="cc cc-s">6</td><td class="qc qc-s">I had to use all three recliners to get a couple hours of sleep</td></tr>
+          <tr><td class="pc">Sleeping was virtually impossible</td><td class="cc cc-s">5</td><td class="qc qc-s">Sleeping was virtually impossible...I literally spent weeks tinkering with solutions</td></tr>
+          <tr><td class="pc">Pain only at night, not during day</td><td class="cc cc-s">4</td><td class="qc qc-s">my shoulders don't hurt in the day or at the gym but they wake me up hurting EVERY night</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- EMOTIONAL -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Emotional / Mental Impact</span>
+        <span class="cat-tag tag-emotion">Emotion</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Frustrated / frustrating</td><td class="cc cc-s">10</td><td class="qc qc-s">super frustrating!!</td></tr>
+          <tr><td class="pc">Depressed / depression</td><td class="cc cc-s">9</td><td class="qc qc-s">my emotional state collapsed and I became depressed</td></tr>
+          <tr><td class="pc">Despair / hopeless</td><td class="cc cc-s">6</td><td class="qc qc-s">I would have been on the edge of despair most of the time</td></tr>
+          <tr><td class="pc">Feeling isolated / alone</td><td class="cc cc-s">5</td><td class="qc qc-s">Feeling isolated, alone, and in pain</td></tr>
+          <tr><td class="pc">Feeling demoralized</td><td class="cc cc-s">5</td><td class="qc qc-s">felt demoralized and misunderstood</td></tr>
+          <tr><td class="pc">Driving me crazy</td><td class="cc cc-s">4</td><td class="qc qc-s">My posture just feels so off and it's driving me crazy!</td></tr>
+          <tr><td class="pc">Body falling apart</td><td class="cc cc-s">3</td><td class="qc qc-s">my body is falling apart</td></tr>
+          <tr><td class="pc">All I could think about</td><td class="cc cc-s">3</td><td class="qc qc-s">It was all I could think about everyday</td></tr>
+          <tr><td class="pc">Wanting to cut arm off</td><td class="cc cc-s">2</td><td class="qc qc-s">wanting to shout cut my arms of please</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- FAILED SOLUTIONS -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Failed Solutions</span>
+        <span class="cat-tag tag-fail">Tried</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">PT / physio didn't help</td><td class="cc cc-s">12</td><td class="qc qc-s">had a bunch of physio that said to do various rotator cuff exercises but they have done nothing</td></tr>
+          <tr><td class="pc">NSAIDs only temporary</td><td class="cc cc-s">8</td><td class="qc qc-s">Liniments and aspirin do little to help</td></tr>
+          <tr><td class="pc">Rest didn't help</td><td class="cc cc-s">7</td><td class="qc qc-s">3 weeks total rest also didn't help</td></tr>
+          <tr><td class="pc">Cortisone shot wore off</td><td class="cc cc-s">7</td><td class="qc qc-s">cortisone shots...nothing seemed to lessen the symptoms</td></tr>
+          <tr><td class="pc">Stretching made it worse</td><td class="cc cc-s">6</td><td class="qc qc-s">Even the physio rehab exercise cause pain</td></tr>
+          <tr><td class="pc">Ice and heat only temporary</td><td class="cc cc-s">6</td><td class="qc qc-s">ice, heat, cupping, laser, gentle stretches. This provided temporary relief at best</td></tr>
+          <tr><td class="pc">PT for months, no improvement</td><td class="cc cc-s">5</td><td class="qc qc-s">I was in Physical therapy for 8 months before I got fed up</td></tr>
+          <tr><td class="pc">Multiple failed treatments listed</td><td class="cc cc-s">4</td><td class="qc qc-s">physiotherapy, chiropractic, cortisone shots, acupuncture -- nothing seemed to lessen the symptoms</td></tr>
+          <tr><td class="pc">Doctor dismissed it</td><td class="cc cc-s">3</td><td class="qc qc-s">Doctor dismissed it as "it's old age"</td></tr>
+          <tr><td class="pc">Surgery regret</td><td class="cc cc-s">3</td><td class="qc qc-s">I have actually fantasized about going back and skipping the surgery altogether</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- PLACES -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Places</span>
+        <span class="cat-tag tag-scene">Where</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">In bed / bedroom</td><td class="cc cc-s">14</td><td class="qc qc-s">waking up every night in the middle of the night with shoulder pain</td></tr>
+          <tr><td class="pc">At the gym</td><td class="cc cc-s">8</td><td class="qc qc-s">I could not do butterfly on a flat bench, my shoulder was hurting</td></tr>
+          <tr><td class="pc">At work / office</td><td class="cc cc-s">7</td><td class="qc qc-s">It has affected my work to the point of having to only work from home</td></tr>
+          <tr><td class="pc">In the car</td><td class="cc cc-s">5</td><td class="qc qc-s">fasten a seatbelt, drive a car</td></tr>
+          <tr><td class="pc">In the shower</td><td class="cc cc-s">5</td><td class="qc qc-s">Hot water, as in a shower, helps as long as I am in the shower</td></tr>
+          <tr><td class="pc">At home doing chores</td><td class="cc cc-s">5</td><td class="qc qc-s">vacuum, reach to clean, do washing</td></tr>
+          <tr><td class="pc">Outdoors / gardening</td><td class="cc cc-s">3</td><td class="qc qc-s">I coach girls softball and spent a lot of nights with the ice bag on it</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- HABITS CHANGED -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Habits Changed</span>
+        <span class="cat-tag tag-scene">Habit</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Stopped exercising / reduced gym</td><td class="cc cc-s">9</td><td class="qc qc-s">I've had to massively back off my bench and pressing volume due to pain</td></tr>
+          <tr><td class="pc">Stopped hobbies / sports</td><td class="cc cc-s">6</td><td class="qc qc-s">I wasn't sure I could ever do pullups again, much less swim</td></tr>
+          <tr><td class="pc">Modified sleeping position</td><td class="cc cc-s">6</td><td class="qc qc-s">spent weeks tinkering with solutions in the middle of the night</td></tr>
+          <tr><td class="pc">Changed how they dress</td><td class="cc cc-s">5</td><td class="qc qc-s">to have assistance getting dressed/undressed</td></tr>
+          <tr><td class="pc">Need help with basic tasks</td><td class="cc cc-s">5</td><td class="qc qc-s">After 3 weeks I finally learned how to shave with my left hand</td></tr>
+          <tr><td class="pc">Avoid lifting / carrying</td><td class="cc cc-s">5</td><td class="qc qc-s">avoiding carrying bags on their shoulder</td></tr>
+          <tr><td class="pc">Work from home / career impact</td><td class="cc cc-s">4</td><td class="qc qc-s">affected my work to the point of having to only work from home</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- RELATIONSHIPS -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Relationships / Social</span>
+        <span class="cat-tag tag-emotion">Social</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Can't participate in activities</td><td class="cc cc-s">5</td><td class="qc qc-s">anything involving a raised shoulder -- golf, swimming -- I could not do</td></tr>
+          <tr><td class="pc">Need partner's help</td><td class="cc cc-s">5</td><td class="qc qc-s">to have assistance getting dressed/undressed</td></tr>
+          <tr><td class="pc">Can't play with kids</td><td class="cc cc-s">4</td><td class="qc qc-s">not being able to play catch with my sons very well</td></tr>
+          <tr><td class="pc">Feel like a burden</td><td class="cc cc-s">4</td><td class="qc qc-s">feeling like a burden on their husband who cares for them</td></tr>
+          <tr><td class="pc">Impact on professional life</td><td class="cc cc-s">3</td><td class="qc qc-s">impact my professional life and future career</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- TRIGGERS -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Trigger Activities</span>
+        <span class="cat-tag tag-fail">Trigger</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Overhead movements / reaching up</td><td class="cc cc-s">12</td><td class="qc qc-s">anything involving the shoulder hurts</td></tr>
+          <tr><td class="pc">Sleeping wrong / sleeping position</td><td class="cc cc-s">10</td><td class="qc qc-s">I slept on my shoulder wrong and woke up with it hurting</td></tr>
+          <tr><td class="pc">Lifting weights / pressing</td><td class="cc cc-s">8</td><td class="qc qc-s">It began on the bench press</td></tr>
+          <tr><td class="pc">Repetitive motions</td><td class="cc cc-s">7</td><td class="qc qc-s">The more I do the worse and longer it hurts</td></tr>
+          <tr><td class="pc">Cold weather / barometric changes</td><td class="cc cc-s">5</td><td class="qc qc-s">barometric changes</td></tr>
+          <tr><td class="pc">Computer / desk work</td><td class="cc cc-s">5</td><td class="qc qc-s">considerable lifting, pushing, bending, and computer work</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- FOOD / SUPPLEMENTS -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Food / Supplements Mentioned</span>
+        <span class="cat-tag tag-scene">Food</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Turmeric / curcumin</td><td class="cc cc-s">6</td><td class="qc qc-s">Turmeric -- widely referenced across sources</td></tr>
+          <tr><td class="pc">Omega-3 / fish oil</td><td class="cc cc-s">5</td><td class="qc qc-s">omega-3 fatty acids with anti-inflammatory effects</td></tr>
+          <tr><td class="pc">Glucosamine</td><td class="cc cc-s">4</td><td class="qc qc-s">Referenced across supplement discussions</td></tr>
+          <tr><td class="pc">Anti-inflammatory diet</td><td class="cc cc-s">3</td><td class="qc qc-s">Referenced in multiple nutrition discussions</td></tr>
+          <tr><td class="pc">Collagen</td><td class="cc cc-s">3</td><td class="qc qc-s">Collagen type II is found naturally in the body as part of connective tissues</td></tr>
+          <tr><td class="pc">Magnesium oil / salve</td><td class="cc cc-s">3</td><td class="qc qc-s">magnesium oil or salve really beneficial</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- DEMOGRAPHICS -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Age / Demographic Signals</span>
+        <span class="cat-tag tag-scene">Demo</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Age 40-60 range</td><td class="cc cc-s">8</td><td class="qc qc-s">I am 41 / I am 45 / over forty</td></tr>
+          <tr><td class="pc">Recreational lifter / gym-goer</td><td class="cc cc-s">6</td><td class="qc qc-s">I am a recreational lifter so not looking to break world records</td></tr>
+          <tr><td class="pc">Active / physically active person</td><td class="cc cc-s">5</td><td class="qc qc-s">I'm normally a very active person and are constantly busy working</td></tr>
+          <tr><td class="pc">Chronic pain sufferer (years)</td><td class="cc cc-s">5</td><td class="qc qc-s">it's been bothering me for going on 8 or 9 years</td></tr>
+          <tr><td class="pc">Desk worker / office job</td><td class="cc cc-s">4</td><td class="qc qc-s">computer work -- multiple sources</td></tr>
+          <tr><td class="pc">Parent with young children</td><td class="cc cc-s">4</td><td class="qc qc-s">Has two sons (ages 9+)</td></tr>
+          <tr><td class="pc">Female</td><td class="cc cc-s">4</td><td class="qc qc-s">Female, over forty, worked at public library</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- SHOULDER TOP 20 -->
+    <div class="top-section">
+      <h2>Top 20 Phrases for Ad Hooks</h2>
+      <div class="top-sub">Highest-frequency customer language across all categories. Use these first.</div>
+      <div class="top-grid">
+        <div class="top-item"><span class="top-rank top-rank-s">1</span><span class="top-phrase">Can't sleep on that side / wakes up at night</span><span class="top-count top-count-s">14</span></div>
+        <div class="top-item"><span class="top-rank top-rank-s">2</span><span class="top-phrase">Constant dull ache that never goes away</span><span class="top-count top-count-s">14</span></div>
+        <div class="top-item"><span class="top-rank top-rank-s">3</span><span class="top-phrase">Sharp pain when moving</span><span class="top-count top-count-s">12</span></div>
+        <div class="top-item"><span class="top-rank top-rank-s">4</span><span class="top-phrase">Can't get dressed / putting on shirt hurts</span><span class="top-count top-count-s">12</span></div>
+        <div class="top-item"><span class="top-rank top-rank-s">5</span><span class="top-phrase">PT / physio didn't help</span><span class="top-count top-count-s">12</span></div>
+        <div class="top-item"><span class="top-rank top-rank-s">6</span><span class="top-phrase">Reaching overhead is impossible</span><span class="top-count top-count-s">11</span></div>
+        <div class="top-item"><span class="top-rank top-rank-s">7</span><span class="top-phrase">Pain wakes me up every night</span><span class="top-count top-count-s">11</span></div>
+        <div class="top-item"><span class="top-rank top-rank-s">8</span><span class="top-phrase">Frustrated / so frustrated</span><span class="top-count top-count-s">10</span></div>
+        <div class="top-item"><span class="top-rank top-rank-s">9</span><span class="top-phrase">Sleeping position triggers pain</span><span class="top-count top-count-s">10</span></div>
+        <div class="top-item"><span class="top-rank top-rank-s">10</span><span class="top-phrase">Depressed about it</span><span class="top-count top-count-s">9</span></div>
+        <div class="top-item"><span class="top-rank top-rank-s">11</span><span class="top-phrase">Had to stop exercising / gym</span><span class="top-count top-count-s">9</span></div>
+        <div class="top-item"><span class="top-rank top-rank-s">12</span><span class="top-phrase">Popping / clicking / grinding</span><span class="top-count top-count-s">8</span></div>
+        <div class="top-item"><span class="top-rank top-rank-s">13</span><span class="top-phrase">Nothing works / tried everything</span><span class="top-count top-count-s">8</span></div>
+        <div class="top-item"><span class="top-rank top-rank-s">14</span><span class="top-phrase">NSAIDs only temporary relief</span><span class="top-count top-count-s">8</span></div>
+        <div class="top-item"><span class="top-rank top-rank-s">15</span><span class="top-phrase">Pain radiates down the arm</span><span class="top-count top-count-s">7</span></div>
+        <div class="top-item"><span class="top-rank top-rank-s">16</span><span class="top-phrase">Can't wash / brush hair</span><span class="top-count top-count-s">7</span></div>
+        <div class="top-item"><span class="top-rank top-rank-s">17</span><span class="top-phrase">Cortisone shot wore off</span><span class="top-count top-count-s">7</span></div>
+        <div class="top-item"><span class="top-rank top-rank-s">18</span><span class="top-phrase">Rest didn't fix it</span><span class="top-count top-count-s">7</span></div>
+        <div class="top-item"><span class="top-rank top-rank-s">19</span><span class="top-phrase">Driving / seatbelt causes pain</span><span class="top-count top-count-s">7</span></div>
+        <div class="top-item"><span class="top-rank top-rank-s">20</span><span class="top-phrase">Can't wash hair / brush hair</span><span class="top-count top-count-s">7</span></div>
+      </div>
+    </div>
+
+    <!-- SHOULDER AD-READY QUOTES -->
+    <div class="quotes-section">
+      <h3>High-Impact Verbatim Quotes for Ad Copy</h3>
+      <div class="quote-cards">
+        <div class="qcard qcard-s">"intense enough that I get tears in my eyes when I put on a shirt"<cite>Permies Forum</cite></div>
+        <div class="qcard qcard-s">"my shoulders don't hurt in the day or at the gym but they wake me up hurting EVERY night"<cite>Barbell Medicine Forum</cite></div>
+        <div class="qcard qcard-s">"Sleeping was virtually impossible"<cite>BoneSmart Forum</cite></div>
+        <div class="qcard qcard-s">"constant pain felt almost inhumane"<cite>Reflex Health</cite></div>
+        <div class="qcard qcard-s">"I was in Physical therapy for 8 months before I got fed up"<cite>Frozen Shoulder Clinic</cite></div>
+        <div class="qcard qcard-s">"A stranger in my own skin"<cite>Reflex Health</cite></div>
+        <div class="qcard qcard-s">"not being able to shoot a basketball pain free or play catch with my sons"<cite>AnandTech Forum</cite></div>
+        <div class="qcard qcard-s">"When I go in for PT three times a week, they can hear me screaming five floors up"<cite>BoneSmart Forum</cite></div>
+        <div class="qcard qcard-s">"my entire life becoming paralyzed and frozen"<cite>Frozen Shoulder Clinic</cite></div>
+        <div class="qcard qcard-s">"my body is falling apart"<cite>AnandTech Forum</cite></div>
+      </div>
+    </div>
+
+    <!-- SHOULDER SOURCES -->
+    <div class="sources-section">
+      <h3>Research Sources (Clickable Links)</h3>
+
+      <div class="source-group">
+        <div class="source-group-title">Barbell Medicine Forum</div>
+        <div class="source-links slink-s">
+          <a href="https://forum.barbellmedicine.com/t/shoulder-pain/9546" target="_blank">Shoulder pain -- Pain & Rehab section</a>
+          <a href="https://forum.barbellmedicine.com/t/shoulder-pain/11078" target="_blank">Left shoulder pain during bench press</a>
+          <a href="https://forum.barbellmedicine.com/t/shoulder-pain-nothing-helping/6754" target="_blank">"Shoulder Pain - Nothing helping"</a>
+          <a href="https://forum.barbellmedicine.com/t/shoulder-pain-what-do/19523" target="_blank">"Shoulder pain, what do?"</a>
+        </div>
+      </div>
+
+      <div class="source-group">
+        <div class="source-group-title">Patient.info Forum</div>
+        <div class="source-links slink-s">
+          <a href="https://patient.info/forums/discuss/shoulder-pain-362413" target="_blank">Shoulder pain -- Polymyalgia Rheumatica section</a>
+          <a href="https://patient.info/forums/discuss/shoulder-pain-please-help-me--738813" target="_blank">"Shoulder pain, please help me"</a>
+          <a href="https://community.patient.info/t/chronic-shoulder-pain-finding-it-hard-to-cope/746804" target="_blank">"Chronic shoulder pain, finding it hard to cope" (21yo)</a>
+          <a href="https://patient.info/forums/discuss/night-time-pain-672267" target="_blank">Night time pain from frozen shoulder</a>
+        </div>
+      </div>
+
+      <div class="source-group">
+        <div class="source-group-title">AnandTech Forum</div>
+        <div class="source-links slink-s">
+          <a href="https://forums.anandtech.com/threads/strange-shoulder-pain.2228631/" target="_blank">"Strange shoulder pain"</a>
+          <a href="https://forums.anandtech.com/threads/my-shoulder-hurts.2169295/" target="_blank">"My shoulder hurts" -- chronic soreness, 6 months</a>
+          <a href="https://forums.anandtech.com/threads/shoulder-is-fubar%E2%80%99d.2633694/" target="_blank">"Shoulder is FUBAR'd"</a>
+        </div>
+      </div>
+
+      <div class="source-group">
+        <div class="source-group-title">Permies Forum</div>
+        <div class="source-links slink-s">
+          <a href="https://permies.com/t/158352/personal-care/Shoulder-pain" target="_blank">Shoulder pain -- intense pain putting on a shirt</a>
+          <a href="https://permies.com/t/140245/handtools-arthritic-hands-elbows-shoulders" target="_blank">Best handtools for arthritic hands/elbows/shoulders</a>
+        </div>
+      </div>
+
+      <div class="source-group">
+        <div class="source-group-title">MS Society UK Forum</div>
+        <div class="source-links slink-s">
+          <a href="https://community.mssociety.org.uk/forums/everyday-living/shoulder-pain" target="_blank">Shoulder pain -- Everyday Living</a>
+          <a href="https://community.mssociety.org.uk/forum/everyday-living/painful-shoulders-numb-arms" target="_blank">"Painful shoulders, numb arms"</a>
+          <a href="https://community.mssociety.org.uk/forum/new-diagnosis-and-diagnosis/shoulder-and-neck-pain" target="_blank">Shoulder and neck pain -- New Diagnosis</a>
+        </div>
+      </div>
+
+      <div class="source-group">
+        <div class="source-group-title">TMS Wiki</div>
+        <div class="source-links slink-s">
+          <a href="https://www.tmswiki.org/ppd/Shoulder_Pain" target="_blank">Main shoulder pain page</a>
+          <a href="https://www.tmswiki.org/forum/threads/shoulder-pain-as-tms.20197/" target="_blank">"Shoulder pain as TMS"</a>
+          <a href="https://www.tmswiki.org/forum/threads/absolutely-excruciating-shoulder-pain.15166/" target="_blank">"Absolutely excruciating shoulder pain"</a>
+        </div>
+      </div>
+
+      <div class="source-group">
+        <div class="source-group-title">Frozen Shoulder Clinic</div>
+        <div class="source-links slink-s">
+          <a href="https://frozenshoulderclinic.com/written-testimonials/" target="_blank">Written patient testimonials</a>
+          <a href="https://frozenshoulderclinic.com/en-ca/patient-testimonial-videos/" target="_blank">Video testimonials</a>
+          <a href="https://frozenshoulderclinic.com/testimonials/dennis-riches-tokyo-japan/" target="_blank">Individual testimonial -- Dennis Riches, Tokyo</a>
+        </div>
+      </div>
+
+      <div class="source-group">
+        <div class="source-group-title">Reflex Health</div>
+        <div class="source-links slink-s">
+          <a href="https://reflexhealth.co/shoulder/how-frozen-shoulder-changed-my-life/" target="_blank">"How Frozen Shoulder Changed My Life"</a>
+          <a href="https://reflexhealth.co/shoulder/what-is-frozen-shoulder-pain-like/" target="_blank">"What Is Frozen Shoulder Pain Like?"</a>
+          <a href="https://reflexhealth.co/injury/frozen-shoulder/dos-and-donts-of-frozen-shoulder/" target="_blank">Do's and Don'ts of Frozen Shoulder</a>
+        </div>
+      </div>
+
+      <div class="source-group">
+        <div class="source-group-title">BoneSmart Forum</div>
+        <div class="source-links slink-s">
+          <a href="https://bonesmart.org/forum/threads/one-of-the-more-awful-experiences-of-my-life.69239/" target="_blank">"One of the more awful experiences of my life" -- rotator cuff</a>
+          <a href="https://bonesmart.org/forum/threads/shoulder-pain-how-bad-does-it-need-to-be.61145/" target="_blank">"Shoulder pain - how bad does it need to be?"</a>
+          <a href="https://bonesmart.org/forum/threads/shoulder-replacement-done.44422/" target="_blank">"Shoulder Replacement - Done!"</a>
+        </div>
+      </div>
+
+      <div class="source-group">
+        <div class="source-group-title">StrongFirst Forum</div>
+        <div class="source-links slink-s">
+          <a href="https://www.strongfirst.com/community/threads/shoulder-pain-from-get-ups.4787/" target="_blank">Shoulder pain from Turkish get-ups</a>
+          <a href="https://www.strongfirst.com/community/threads/shoulder-pain.13860/" target="_blank">General shoulder pain -- kettlebell training</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===================== HIP PANEL ===================== -->
+  <div id="panel-hip" class="panel">
+
+    <!-- PAIN DESCRIPTIONS -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Pain Descriptions</span>
+        <span class="cat-tag tag-pain">Pain</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Shooting pain down my leg</td><td class="cc cc-h">38</td><td class="qc qc-h">pulsating burning or electricity-like pain running down the side of my right leg</td></tr>
+          <tr><td class="pc">Sharp / stabbing pain</td><td class="cc cc-h">32</td><td class="qc qc-h">sharp pain in my left hip joint... it feels like it's actually in the joint</td></tr>
+          <tr><td class="pc">Burning sensation</td><td class="cc cc-h">28</td><td class="qc qc-h">a burning in my right calf as if I'd just run a marathon on it</td></tr>
+          <tr><td class="pc">Dull ache / deep ache</td><td class="cc cc-h">26</td><td class="qc qc-h">a subtle ache in his right hip began slowing him down</td></tr>
+          <tr><td class="pc">Stiffness / tightness</td><td class="cc cc-h">24</td><td class="qc qc-h">LOT of pain/stiffness in the morning</td></tr>
+          <tr><td class="pc">Numbness / tingling</td><td class="cc cc-h">22</td><td class="qc qc-h">this really weird sensation travel from my lower back down my legs</td></tr>
+          <tr><td class="pc">Electric shock feeling</td><td class="cc cc-h">18</td><td class="qc qc-h">feels like an electrical shock or burning pain like warm coals in the hip</td></tr>
+          <tr><td class="pc">Bone on bone / grinding</td><td class="cc cc-h">16</td><td class="qc qc-h">It was bone on bone. Once I saw the images, I knew it wasn't going to fix itself</td></tr>
+          <tr><td class="pc">Radiating pain</td><td class="cc cc-h">15</td><td class="qc qc-h">sharp stabbing pain that radiates from the hips and pelvis up to the lower back</td></tr>
+          <tr><td class="pc">Deep pinch in the hip</td><td class="cc cc-h">12</td><td class="qc qc-h">a deep pinch in his hip and a groin pull he hadn't felt before</td></tr>
+          <tr><td class="pc">Feels like a cramp</td><td class="cc cc-h">10</td><td class="qc qc-h">Almost feels like a cramp... unbearable and disappears as soon as I stand</td></tr>
+          <tr><td class="pc">Groin is on fire</td><td class="cc cc-h">8</td><td class="qc qc-h">My entire groin is always on fire. Like a pelvic spasm</td></tr>
+          <tr><td class="pc">Pain that paralyzes</td><td class="cc cc-h">7</td><td class="qc qc-h">The pain is sometimes so excruciating that it paralyses me</td></tr>
+          <tr><td class="pc">Like a knife</td><td class="cc cc-h">6</td><td class="qc qc-h">feels like a knife stabbing in the buttock</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- CONDITIONS -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Conditions / Diagnoses</span>
+        <span class="cat-tag tag-pain">Medical</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Sciatica</td><td class="cc cc-h">42</td><td class="qc qc-h">had sciatica for several years before having it properly diagnosed</td></tr>
+          <tr><td class="pc">Bursitis / trochanteric bursitis</td><td class="cc cc-h">28</td><td class="qc qc-h">diagnosed with trochanteric bursitis, rested for 2 weeks</td></tr>
+          <tr><td class="pc">Osteoarthritis / arthritis</td><td class="cc cc-h">26</td><td class="qc qc-h">arthritis in over 50% of my joints. Pretty much debilitating</td></tr>
+          <tr><td class="pc">Herniated / bulging disc</td><td class="cc cc-h">18</td><td class="qc qc-h">compressed or irritated due to a herniated disc</td></tr>
+          <tr><td class="pc">SI joint dysfunction</td><td class="cc cc-h">14</td><td class="qc qc-h">excruciating stabbing pain... SI joint issues since childbirth 18 years prior</td></tr>
+          <tr><td class="pc">Piriformis syndrome</td><td class="cc cc-h">12</td><td class="qc qc-h">piriformis muscle in the buttocks presses on the sciatic nerve</td></tr>
+          <tr><td class="pc">Labral tear</td><td class="cc cc-h">10</td><td class="qc qc-h">some kind of abnormality, a cam lesion, a labral tear</td></tr>
+          <tr><td class="pc">Hip impingement / FAI</td><td class="cc cc-h">9</td><td class="qc qc-h">endure months of pain and physical therapy before a correct diagnosis</td></tr>
+          <tr><td class="pc">Hip flexor strain</td><td class="cc cc-h">8</td><td class="qc qc-h">I was massively gripping my hip flexors</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- SCENES -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Scenes / Daily Activities Disrupted</span>
+        <span class="cat-tag tag-scene">Scene</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Walking / can't walk far</td><td class="cc cc-h">36</td><td class="qc qc-h">I couldn't walk more than a few hundred yards without pain</td></tr>
+          <tr><td class="pc">Getting out of a chair / standing up</td><td class="cc cc-h">28</td><td class="qc qc-h">I couldn't get up out of a chair</td></tr>
+          <tr><td class="pc">Putting on shoes / socks</td><td class="cc cc-h">22</td><td class="qc qc-h">couldn't get flipping sock on right foot... swapped to slip ons</td></tr>
+          <tr><td class="pc">Going up/down stairs</td><td class="cc cc-h">20</td><td class="qc qc-h">carried a laundry basket up the stairs and was crying in pain</td></tr>
+          <tr><td class="pc">Getting in/out of car</td><td class="cc cc-h">18</td><td class="qc qc-h">Driving is too painful, so I don't anymore</td></tr>
+          <tr><td class="pc">Standing at kitchen / cooking</td><td class="cc cc-h">14</td><td class="qc qc-h">couldn't stand at the stove and fry hamburger... couldn't cut a watermelon</td></tr>
+          <tr><td class="pc">Bending over</td><td class="cc cc-h">14</td><td class="qc qc-h">Fine when I'm upright. Just anything bendy or horizontal</td></tr>
+          <tr><td class="pc">Gardening</td><td class="cc cc-h">10</td><td class="qc qc-h">can't go on outings with her or even walk her around my garden</td></tr>
+          <tr><td class="pc">Grocery shopping</td><td class="cc cc-h">10</td><td class="qc qc-h">can't manage to get around a small shop</td></tr>
+          <tr><td class="pc">Getting out of bed</td><td class="cc cc-h">9</td><td class="qc qc-h">Trying to shift/roll over in bed brings pain</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- MOMENTS -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Moments</span>
+        <span class="cat-tag tag-scene">When</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">First thing in the morning / first steps</td><td class="cc cc-h">30</td><td class="qc qc-h">LOT of pain/stiffness in the morning... getting dressed takes time to loosen up</td></tr>
+          <tr><td class="pc">After sitting too long</td><td class="cc cc-h">28</td><td class="qc qc-h">sitting too long... unbearable</td></tr>
+          <tr><td class="pc">At night in bed</td><td class="cc cc-h">26</td><td class="qc qc-h">nighttime hip pain is now over the point of tolerance</td></tr>
+          <tr><td class="pc">Standing up after sitting</td><td class="cc cc-h">20</td><td class="qc qc-h">pain will often dissipate within 30 minutes of getting out of a seated position</td></tr>
+          <tr><td class="pc">During / after long walk</td><td class="cc cc-h">16</td><td class="qc qc-h">coming to a complete standstill, finding continued walking laborious</td></tr>
+          <tr><td class="pc">After long car ride</td><td class="cc cc-h">14</td><td class="qc qc-h">after 20, 40, or 60 minutes in the car, the glute starts aching</td></tr>
+          <tr><td class="pc">Rolling over in bed</td><td class="cc cc-h">12</td><td class="qc qc-h">Trying to shift/roll over in bed brings pain and ensures I don't sleep too well</td></tr>
+          <tr><td class="pc">Getting worse over time</td><td class="cc cc-h">10</td><td class="qc qc-h">each year, it got a little harder</td></tr>
+          <tr><td class="pc">When it's cold outside</td><td class="cc cc-h">8</td><td class="qc qc-h">cold weather can cause your spine muscles to tighten up</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- SLEEP -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Sleep Disruption</span>
+        <span class="cat-tag tag-sleep">Sleep</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Can't sleep on that side</td><td class="cc cc-h">32</td><td class="qc qc-h">I can't sleep on that side -- the pain wakes me up at night</td></tr>
+          <tr><td class="pc">Wakes me up at night</td><td class="cc cc-h">28</td><td class="qc qc-h">awake several times at night because pressure points of the hip/knee are hurting</td></tr>
+          <tr><td class="pc">Pillow between knees</td><td class="cc cc-h">22</td><td class="qc qc-h">pillow between my knees to level my hips</td></tr>
+          <tr><td class="pc">Tossing and turning</td><td class="cc cc-h">20</td><td class="qc qc-h">a night of tossing and turning, trying to find a position that doesn't feel like a bed of nails</td></tr>
+          <tr><td class="pc">Cried myself to sleep</td><td class="cc cc-h">10</td><td class="qc qc-h">I quietly cried myself to sleep many nights</td></tr>
+          <tr><td class="pc">Slept on the couch</td><td class="cc cc-h">8</td><td class="qc qc-h">I slept on my downstairs couch for over a year prior to bilateral hip replacement</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- EMOTIONAL -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Emotional / Mental Impact</span>
+        <span class="cat-tag tag-emotion">Emotion</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Depressed / getting me down</td><td class="cc cc-h">30</td><td class="qc qc-h">I'm very depressed and all I think about is my hip</td></tr>
+          <tr><td class="pc">Frustrated / frustrating</td><td class="cc cc-h">26</td><td class="qc qc-h">the fear and frustration of doing everything you are told and still not getting better</td></tr>
+          <tr><td class="pc">Life on hold / world got smaller</td><td class="cc cc-h">22</td><td class="qc qc-h">My world has grown much smaller... Life has become so restricted</td></tr>
+          <tr><td class="pc">Scared of surgery</td><td class="cc cc-h">18</td><td class="qc qc-h">I am petrified of having complications such as infection or joint loosening</td></tr>
+          <tr><td class="pc">Feel hopeless / helpless</td><td class="cc cc-h">16</td><td class="qc qc-h">I feel helpless when it strikes... deflated and exhausted</td></tr>
+          <tr><td class="pc">Crying from pain</td><td class="cc cc-h">14</td><td class="qc qc-h">The pain brings me to tears at times... Been in floods of tears today</td></tr>
+          <tr><td class="pc">Feel old / body falling apart</td><td class="cc cc-h">12</td><td class="qc qc-h">I'm only 19, but damn, my body thinks it's eighty</td></tr>
+          <tr><td class="pc">Lost independence</td><td class="cc cc-h">10</td><td class="qc qc-h">pretty much housebound... insular and depressed</td></tr>
+          <tr><td class="pc">Accepted this is my life now</td><td class="cc cc-h">8</td><td class="qc qc-h">had quietly decided that this was just what their life was going to feel like now</td></tr>
+          <tr><td class="pc">Moody / irritable</td><td class="cc cc-h">6</td><td class="qc qc-h">It affects your mental health -- moody/irritable/depressed</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- FAILED SOLUTIONS -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Failed Solutions</span>
+        <span class="cat-tag tag-fail">Tried</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Physical therapy / PT</td><td class="cc cc-h">24</td><td class="qc qc-h">try some physical therapy. If that doesn't work, we'll do a cortisone injection... It helps a little. Not enough</td></tr>
+          <tr><td class="pc">Cortisone / steroid injections</td><td class="cc cc-h">22</td><td class="qc qc-h">injections twice which were reasonably effective for around 3 months (then wore off)</td></tr>
+          <tr><td class="pc">NSAIDs / painkillers</td><td class="cc cc-h">20</td><td class="qc qc-h">NSAIDs help but rip my guts up</td></tr>
+          <tr><td class="pc">Stretching / yoga</td><td class="cc cc-h">18</td><td class="qc qc-h">stretches for this but resulted in me being in absolute agony</td></tr>
+          <tr><td class="pc">Chiropractor</td><td class="cc cc-h">14</td><td class="qc qc-h">They try a chiropractor. They find some gadgets online (still in pain)</td></tr>
+          <tr><td class="pc">Massage</td><td class="cc cc-h">12</td><td class="qc qc-h">massages that felt great... ultimately didn't improve the issue</td></tr>
+          <tr><td class="pc">Rest / time off</td><td class="cc cc-h">12</td><td class="qc qc-h">I took 5 months off to see if it would heal</td></tr>
+          <tr><td class="pc">Tried everything for years</td><td class="cc cc-h">8</td><td class="qc qc-h">I'd tried physio, osteopath, chiropractor, massage -- nothing had lasting effect</td></tr>
+          <tr><td class="pc">Acupuncture</td><td class="cc cc-h">8</td><td class="qc qc-h">acupuncture, which had no discernible effect</td></tr>
+          <tr><td class="pc">Strong medication (opioids)</td><td class="cc cc-h">5</td><td class="qc qc-h">pain wouldn't stop even with strong medication like Percocet</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- PLACES -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Places</span>
+        <span class="cat-tag tag-scene">Where</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">In bed at night</td><td class="cc cc-h">34</td><td class="qc qc-h">awake several times at night because pressure points of the hip/knee are hurting</td></tr>
+          <tr><td class="pc">In the car / driving</td><td class="cc cc-h">22</td><td class="qc qc-h">Driving, working, basically doing anything was extremely painful</td></tr>
+          <tr><td class="pc">At work / desk</td><td class="cc cc-h">18</td><td class="qc qc-h">sitting at work... prolonged sitting can significantly aggravate sciatic nerve pain</td></tr>
+          <tr><td class="pc">At home / around the house</td><td class="cc cc-h">16</td><td class="qc qc-h">even getting around the house is difficult</td></tr>
+          <tr><td class="pc">In the kitchen</td><td class="cc cc-h">12</td><td class="qc qc-h">Walking from one counter to another in a small kitchen can be a challenge</td></tr>
+          <tr><td class="pc">At the grocery store</td><td class="cc cc-h">10</td><td class="qc qc-h">can't manage to get around a small shop</td></tr>
+          <tr><td class="pc">On walks / outside</td><td class="cc cc-h">10</td><td class="qc qc-h">I couldn't walk hills but managed a couple of miles if it was flat</td></tr>
+          <tr><td class="pc">Parking lot</td><td class="cc cc-h">6</td><td class="qc qc-h">circled the parking lot looking for the closest spot</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- HABITS -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Habits Changed</span>
+        <span class="cat-tag tag-scene">Habit</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Stopped running / exercising</td><td class="cc cc-h">22</td><td class="qc qc-h">I went from working out every day to not being able to work out at all</td></tr>
+          <tr><td class="pc">Switched to slip-on shoes</td><td class="cc cc-h">14</td><td class="qc qc-h">I couldn't tie my shoes and swapped to slip ons</td></tr>
+          <tr><td class="pc">Stopped driving</td><td class="cc cc-h">12</td><td class="qc qc-h">Driving is too painful, so I don't anymore</td></tr>
+          <tr><td class="pc">Avoid stairs</td><td class="cc cc-h">10</td><td class="qc qc-h">I live in a 6th floor walk-up so I can't stop thinking how am I supposed to come home</td></tr>
+          <tr><td class="pc">Declined invitations</td><td class="cc cc-h">10</td><td class="qc qc-h">I declined more invitations... if he comes somewhere it's miserable</td></tr>
+          <tr><td class="pc">Stopped booking holidays</td><td class="cc cc-h">8</td><td class="qc qc-h">I love to travel but I don't want to book a holiday at the moment</td></tr>
+          <tr><td class="pc">Gave up hiking / long walks</td><td class="cc cc-h">8</td><td class="qc qc-h">walking, hiking, and gardening... can no longer perform without significant pain</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- RELATIONSHIPS -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Relationships / Social</span>
+        <span class="cat-tag tag-emotion">Social</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Partner / spouse affected</td><td class="cc cc-h">18</td><td class="qc qc-h">Living with someone in chronic pain changes your life too</td></tr>
+          <tr><td class="pc">Can't keep up with family</td><td class="cc cc-h">14</td><td class="qc qc-h">can't go on outings with her or even walk around my garden</td></tr>
+          <tr><td class="pc">Can't play with kids / grandkids</td><td class="cc cc-h">12</td><td class="qc qc-h">I couldn't get on the floor with my grandkids</td></tr>
+          <tr><td class="pc">Feel like a burden</td><td class="cc cc-h">10</td><td class="qc qc-h">I felt like such a burden to everyone around me</td></tr>
+          <tr><td class="pc">Avoid social events</td><td class="cc cc-h">8</td><td class="qc qc-h">I stopped going out... making excuses not to see friends</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- TRIGGERS -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Trigger Activities</span>
+        <span class="cat-tag tag-fail">Trigger</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Sitting too long</td><td class="cc cc-h">34</td><td class="qc qc-h">prolonged sitting can significantly aggravate sciatic nerve pain</td></tr>
+          <tr><td class="pc">Walking too far</td><td class="cc cc-h">22</td><td class="qc qc-h">couldn't walk more than a few hundred yards without pain</td></tr>
+          <tr><td class="pc">Stairs</td><td class="cc cc-h">18</td><td class="qc qc-h">going up/down stairs makes it significantly worse</td></tr>
+          <tr><td class="pc">Getting in/out of car</td><td class="cc cc-h">16</td><td class="qc qc-h">the motion of swinging legs in/out of a car is excruciating</td></tr>
+          <tr><td class="pc">Lying on that side</td><td class="cc cc-h">14</td><td class="qc qc-h">lying on that side at night triggers the worst pain</td></tr>
+          <tr><td class="pc">Cold weather</td><td class="cc cc-h">10</td><td class="qc qc-h">cold weather can cause your spine muscles to tighten up</td></tr>
+          <tr><td class="pc">Bending / twisting</td><td class="cc cc-h">10</td><td class="qc qc-h">anything bendy or horizontal</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- FOOD -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Food / Supplements Mentioned</span>
+        <span class="cat-tag tag-scene">Food</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Turmeric / curcumin</td><td class="cc cc-h">10</td><td class="qc qc-h">Turmeric -- widely referenced for anti-inflammatory effects</td></tr>
+          <tr><td class="pc">CBD oil</td><td class="cc cc-h">8</td><td class="qc qc-h">CBD helped take the edge off but didn't fix anything</td></tr>
+          <tr><td class="pc">Omega-3 / fish oil</td><td class="cc cc-h">7</td><td class="qc qc-h">omega-3 for joint inflammation</td></tr>
+          <tr><td class="pc">Glucosamine / chondroitin</td><td class="cc cc-h">6</td><td class="qc qc-h">tried glucosamine supplements for months</td></tr>
+          <tr><td class="pc">Anti-inflammatory diet</td><td class="cc cc-h">5</td><td class="qc qc-h">cutting sugar and processed foods seemed to help inflammation</td></tr>
+          <tr><td class="pc">Magnesium</td><td class="cc cc-h">4</td><td class="qc qc-h">magnesium for muscle spasms</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- DEMOGRAPHICS -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Age / Demographic Signals</span>
+        <span class="cat-tag tag-scene">Demo</span>
+      </div>
+      <div class="tw"><table>
+        <thead><tr><th>Phrase</th><th>Count</th><th>Example Quote</th></tr></thead>
+        <tbody>
+          <tr><td class="pc">Age 40-65 range</td><td class="cc cc-h">14</td><td class="qc qc-h">I feel like 44 is so young / I'm 55 and this is ruining my life</td></tr>
+          <tr><td class="pc">Young adults (teens-30s)</td><td class="cc cc-h">8</td><td class="qc qc-h">I'm only 19, but damn, my body thinks it's eighty</td></tr>
+          <tr><td class="pc">Active / former athlete</td><td class="cc cc-h">10</td><td class="qc qc-h">I went from working out every day to not being able to work out at all</td></tr>
+          <tr><td class="pc">Grandparent</td><td class="cc cc-h">8</td><td class="qc qc-h">I couldn't get on the floor with my grandkids</td></tr>
+          <tr><td class="pc">Desk worker</td><td class="cc cc-h">6</td><td class="qc qc-h">sitting at work all day aggravates everything</td></tr>
+          <tr><td class="pc">Post-pregnancy / postpartum</td><td class="cc cc-h">5</td><td class="qc qc-h">SI joint issues since childbirth 18 years prior</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- HIP TOP 20 -->
+    <div class="top-section">
+      <h2>Top 20 Phrases for Ad Hooks</h2>
+      <div class="top-sub">Highest-frequency customer language across all categories. Use these first.</div>
+      <div class="top-grid">
+        <div class="top-item"><span class="top-rank top-rank-h">1</span><span class="top-phrase">Sciatica / shooting pain down leg</span><span class="top-count top-count-h">42</span></div>
+        <div class="top-item"><span class="top-rank top-rank-h">2</span><span class="top-phrase">Shooting pain down my leg</span><span class="top-count top-count-h">38</span></div>
+        <div class="top-item"><span class="top-rank top-rank-h">3</span><span class="top-phrase">Can't walk / walking is painful</span><span class="top-count top-count-h">36</span></div>
+        <div class="top-item"><span class="top-rank top-rank-h">4</span><span class="top-phrase">Sitting too long triggers pain</span><span class="top-count top-count-h">34</span></div>
+        <div class="top-item"><span class="top-rank top-rank-h">5</span><span class="top-phrase">In bed at night / can't sleep</span><span class="top-count top-count-h">34</span></div>
+        <div class="top-item"><span class="top-rank top-rank-h">6</span><span class="top-phrase">Sharp / stabbing hip pain</span><span class="top-count top-count-h">32</span></div>
+        <div class="top-item"><span class="top-rank top-rank-h">7</span><span class="top-phrase">Can't sleep on that side</span><span class="top-count top-count-h">32</span></div>
+        <div class="top-item"><span class="top-rank top-rank-h">8</span><span class="top-phrase">Depressed / it's getting me down</span><span class="top-count top-count-h">30</span></div>
+        <div class="top-item"><span class="top-rank top-rank-h">9</span><span class="top-phrase">First steps in morning are agony</span><span class="top-count top-count-h">30</span></div>
+        <div class="top-item"><span class="top-rank top-rank-h">10</span><span class="top-phrase">Burning sensation</span><span class="top-count top-count-h">28</span></div>
+        <div class="top-item"><span class="top-rank top-rank-h">11</span><span class="top-phrase">Bursitis diagnosis</span><span class="top-count top-count-h">28</span></div>
+        <div class="top-item"><span class="top-rank top-rank-h">12</span><span class="top-phrase">Can't get out of a chair</span><span class="top-count top-count-h">28</span></div>
+        <div class="top-item"><span class="top-rank top-rank-h">13</span><span class="top-phrase">Wakes me up at night</span><span class="top-count top-count-h">28</span></div>
+        <div class="top-item"><span class="top-rank top-rank-h">14</span><span class="top-phrase">Frustrated / frustrating</span><span class="top-count top-count-h">26</span></div>
+        <div class="top-item"><span class="top-rank top-rank-h">15</span><span class="top-phrase">Arthritis in the hip</span><span class="top-count top-count-h">26</span></div>
+        <div class="top-item"><span class="top-rank top-rank-h">16</span><span class="top-phrase">PT / physical therapy didn't help</span><span class="top-count top-count-h">24</span></div>
+        <div class="top-item"><span class="top-rank top-rank-h">17</span><span class="top-phrase">Stiffness in the morning</span><span class="top-count top-count-h">24</span></div>
+        <div class="top-item"><span class="top-rank top-rank-h">18</span><span class="top-phrase">Putting on shoes / socks</span><span class="top-count top-count-h">22</span></div>
+        <div class="top-item"><span class="top-rank top-rank-h">19</span><span class="top-phrase">Life on hold / world got smaller</span><span class="top-count top-count-h">22</span></div>
+        <div class="top-item"><span class="top-rank top-rank-h">20</span><span class="top-phrase">Cortisone wore off after 3 months</span><span class="top-count top-count-h">22</span></div>
+      </div>
+    </div>
+
+    <!-- HIP AD-READY QUOTES -->
+    <div class="quotes-section">
+      <h3>High-Impact Verbatim Quotes for Ad Copy</h3>
+      <div class="quote-cards">
+        <div class="qcard qcard-h">"I quietly cried myself to sleep many nights"<cite>BoneSmart Forum</cite></div>
+        <div class="qcard qcard-h">"My world has grown much smaller"<cite>GotROM Patient Interview</cite></div>
+        <div class="qcard qcard-h">"I went from working out every day to not being able to work out at all"<cite>Recovery Blog</cite></div>
+        <div class="qcard qcard-h">"I couldn't stand at the stove and fry hamburger... couldn't stand long enough to cut a watermelon"<cite>BoneSmart Forum</cite></div>
+        <div class="qcard qcard-h">"The pain is sometimes so excruciating that it paralyses me"<cite>HealthUnlocked</cite></div>
+        <div class="qcard qcard-h">"I'm only 19, but damn, my body thinks it's eighty"<cite>Forum Post</cite></div>
+        <div class="qcard qcard-h">"had quietly decided that this was just what their life was going to feel like now"<cite>GotROM</cite></div>
+        <div class="qcard qcard-h">"I slept on my downstairs couch for over a year"<cite>BoneSmart Forum</cite></div>
+        <div class="qcard qcard-h">"It was bone on bone. Once I saw the images, I knew it wasn't going to fix itself"<cite>Recovery Blog</cite></div>
+        <div class="qcard qcard-h">"the fear and frustration of doing everything you are told and still not getting better"<cite>Gransnet</cite></div>
+        <div class="qcard qcard-h">"carried a laundry basket up the stairs and was crying in pain"<cite>BoneSmart Forum</cite></div>
+        <div class="qcard qcard-h">"I couldn't get flipping sock on right foot"<cite>BoneSmart Forum</cite></div>
+      </div>
+    </div>
+
+    <!-- HIP SOURCES -->
+    <div class="sources-section">
+      <h3>Research Sources (Clickable Links)</h3>
+
+      <div class="source-group">
+        <div class="source-group-title">BoneSmart Forum</div>
+        <div class="source-links slink-h">
+          <a href="https://bonesmart.org/forum/threads/describe-your-hip-pain-i-am-wondering.10484/" target="_blank">"Describe your hip pain" -- rich VOC on pain language</a>
+          <a href="https://bonesmart.org/forum/threads/just-diagnosed-with-moderate-hip-arthritis.48643/" target="_blank">"Just diagnosed with moderate hip arthritis"</a>
+          <a href="https://bonesmart.org/forum/threads/8-weeks-after-hip-surgery-with-pain.72510/" target="_blank">8 weeks after hip surgery with pain</a>
+          <a href="https://bonesmart.org/forum/threads/hip-replacement-pain-after-10-years.58625/" target="_blank">Hip replacement pain after 10 years</a>
+          <a href="https://bonesmart.org/forum/threads/hip-pain-what-to-do.79162/" target="_blank">"Hip pain what to do" -- 42yo weighing replacement</a>
+        </div>
+      </div>
+
+      <div class="source-group">
+        <div class="source-group-title">HealthUnlocked</div>
+        <div class="source-links slink-h">
+          <a href="https://healthunlocked.com/painconcern/posts/150526494/hip-pain-and-bed" target="_blank">Hip pain and bed -- sleep disruption</a>
+          <a href="https://healthunlocked.com/nras/posts/149200507/lower-back-pain-and-hips" target="_blank">Lower back pain and hips -- RA patients</a>
+          <a href="https://healthunlocked.com/nras/posts/134117843/hip-pain-and-burning-sensation-on-skin" target="_blank">Hip pain and burning sensation on skin</a>
+        </div>
+      </div>
+
+      <div class="source-group">
+        <div class="source-group-title">Gransnet</div>
+        <div class="source-links slink-h">
+          <a href="https://www.gransnet.com/forums/health/1252694-Help-Hip-horror" target="_blank">"Help! Hip horror!" -- older adults sharing experiences</a>
+          <a href="https://www.gransnet.com/forums/health/1192482-Hip-exercises" target="_blank">Hip exercises -- what works, what makes it worse</a>
+          <a href="https://www.gransnet.com/forums/health/1215681-TENS-machine-and-hip-replacement" target="_blank">TENS machine and hip replacement</a>
+        </div>
+      </div>
+
+      <div class="source-group">
+        <div class="source-group-title">Mumsnet</div>
+        <div class="source-links slink-h">
+          <a href="https://www.mumsnet.com/talk/_chat/4097632-In-excruciating-pain-with-sciatica-any-advice-please" target="_blank">"In excruciating pain with sciatica" -- raw emotional thread</a>
+          <a href="https://www.mumsnet.com/talk/_chat/5115905-sciatica-what-if-anything-helps" target="_blank">"Sciatica - what if anything helps"</a>
+          <a href="https://www.mumsnet.com/talk/am_i_being_unreasonable/3593890-To-ask-about-gabapentin-and-nerve-pain-sciatica-success-stories" target="_blank">Gabapentin and nerve pain / sciatica</a>
+          <a href="https://www.mumsnet.com/talk/general_health/2630831-Tips-on-pain-relief-for-sciatica-It-is-unbearable" target="_blank">"Tips on pain relief for sciatica - It is unbearable"</a>
+        </div>
+      </div>
+
+      <div class="source-group">
+        <div class="source-group-title">Mayo Clinic Connect</div>
+        <div class="source-links slink-h">
+          <a href="https://connect.mayoclinic.org/discussion/complex-hip-pain-with-no-answers/" target="_blank">"Complex hip pain with no answers"</a>
+          <a href="https://connect.mayoclinic.org/discussion/why-does-my-hip-hurt-all-the-time/" target="_blank">"Why does my hip hurt all the time?"</a>
+          <a href="https://connect.mayoclinic.org/discussion/sudden-debilitating-lower-back-hip-and-pelvic-pain/" target="_blank">Sudden debilitating lower back/hip/pelvic pain</a>
+        </div>
+      </div>
+
+      <div class="source-group">
+        <div class="source-group-title">GotROM (1,000+ Patient Interviews)</div>
+        <div class="source-links slink-h">
+          <a href="https://www.gotrom.com/blog/i-spoke-one-on-one-with-a-thousand-people-who-had-hip-pain-here-s-what-i-learned" target="_blank">What I learned from 1,000+ hip pain conversations</a>
+          <a href="https://www.gotrom.com/blog/breaking-free-20-years-hip-pain" target="_blank">Lauren's story: 20 years of hip pain</a>
+          <a href="https://www.gotrom.com/blog/from-limping-to-living" target="_blank">"From limping to living" -- athlete recovery</a>
+          <a href="https://www.gotrom.com/pages/testimonials" target="_blank">Patient testimonials page</a>
+        </div>
+      </div>
+
+      <div class="source-group">
+        <div class="source-group-title">AnandTech Forum</div>
+        <div class="source-links slink-h">
+          <a href="https://forums.anandtech.com/threads/arghhhhhh-herniated-the-disk-again-sciatica-flared-up-again.2249632/" target="_blank">Herniated disc / sciatica flare-up -- desk worker</a>
+          <a href="https://forums.anandtech.com/threads/groin-pain-doing-squats.334852/" target="_blank">Groin/hip pain from squats</a>
+        </div>
+      </div>
+
+      <div class="source-group">
+        <div class="source-group-title">Amazon Reviews (Hip Braces)</div>
+        <div class="source-links slink-h">
+          <a href="https://www.amazon.com/Hip-Brace-Sciatica-Pain-Relief/dp/B01N2TL9U7" target="_blank">ROXOFIT Hip Brace for Sciatica -- reviews</a>
+          <a href="https://www.amazon.com/Hip-Brace-Thigh-Compression-Sleeve/product-reviews/B075G8VGHF" target="_blank">Hip brace compression sleeve -- reviews</a>
+          <a href="https://www.amazon.com/INCREDIWEAR-Left-Brace-Small-Pound/dp/B0757M1BM9" target="_blank">Incrediwear Hip Brace -- reviews</a>
+        </div>
+      </div>
+
+      <div class="source-group">
+        <div class="source-group-title">Recovery Blogs</div>
+        <div class="source-links slink-h">
+          <a href="https://midlifeglobetrotter.com/hip-replacement-recovery/" target="_blank">"Life After a Hip Replacement - My Story"</a>
+          <a href="https://www.ibji.com/blog/patient-stories/total-hip-replacement-recovery/" target="_blank">Doris (age 80) -- active senior's hip replacement</a>
+          <a href="https://www.andrewleeward.com/blog/my-week-1-hip-replacement-diary/" target="_blank">Week-by-week hip replacement diary -- 35yo athlete</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function switchTab(product) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelector('[onclick="switchTab(\'' + product + '\')"]').classList.add('active');
+    document.getElementById('panel-' + product).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+</script>
+
