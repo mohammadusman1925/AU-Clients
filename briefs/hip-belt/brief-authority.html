@@ -1,0 +1,307 @@
+<title>The Authority, Creator Brief</title>
+<style>
+:root{
+  --bg:#F7F4EE; --card:#FFFDF9; --ink:#22201C; --ink-2:#5B554C; --ink-3:#8A8377;
+  --rule:#E2DCD0; --rule-2:#EFEAE0;
+  --hip:#B4531F; --hip-soft:#FBEDE4;
+  --accent:var(--hip); --accent-soft:var(--hip-soft);
+  --keep:#4C7A3F;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#16150F; --card:#1E1D16; --ink:#F0EBDF; --ink-2:#B3AC9C; --ink-3:#847D6D;
+  --rule:#332F25; --rule-2:#26241C;
+  --hip:#E08B54; --hip-soft:#2B1D12;
+  --keep:#8FC07C;
+}}
+:root[data-theme="dark"]{
+  --bg:#16150F; --card:#1E1D16; --ink:#F0EBDF; --ink-2:#B3AC9C; --ink-3:#847D6D;
+  --rule:#332F25; --rule-2:#26241C;
+  --hip:#E08B54; --hip-soft:#2B1D12;
+  --keep:#8FC07C;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:47rem;margin:0 auto;padding:0 1.6rem 6rem}
+.masthead{padding:2.6rem 0 1.6rem;border-bottom:1px solid var(--rule);margin-bottom:2.4rem}
+.masthead .brand{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin:0 0 .35rem}
+.masthead .set{font-size:1.06rem;font-weight:700;margin:0;letter-spacing:-.008em}
+.masthead .which{font-size:.85rem;color:var(--ink-3);margin:.2rem 0 0}
+.head{background:var(--accent-soft);border-left:3px solid var(--accent);
+  border-radius:0 8px 8px 0;padding:1.5rem 1.6rem;margin-bottom:2.2rem}
+.head .tag{display:inline-block;font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;
+  font-weight:700;color:var(--accent);border:1px solid var(--accent);border-radius:100px;
+  padding:.18rem .6rem;margin-bottom:.7rem}
+.head h1{font-size:1.72rem;line-height:1.16;margin:0 0 .4rem;letter-spacing:-.018em;font-weight:750}
+.head .eyebrow{margin:0;font-size:.83rem;color:var(--ink-2);font-weight:600}
+.head em{color:var(--ink-2);font-size:.9rem;font-style:normal;display:block;margin-top:.35rem}
+h2{font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;
+  color:var(--accent);margin:2.6rem 0 .85rem;padding-bottom:.45rem;border-bottom:1px solid var(--rule)}
+h3{font-size:1.02rem;margin:1.9rem 0 .55rem;font-weight:700;letter-spacing:-.01em}
+h4{font-size:.94rem;margin:1.9rem 0 .6rem;font-weight:700;color:var(--ink);
+  padding-left:.7rem;border-left:3px solid var(--accent)}
+p{margin:.75rem 0}
+ul{margin:.7rem 0;padding-left:1.15rem}
+li{margin:.34rem 0}
+a{color:var(--accent)}
+strong{font-weight:670}
+code{background:var(--rule-2);padding:.1em .35em;border-radius:3px;font-size:.9em}
+hr{border:0;border-top:1px solid var(--rule-2);margin:2.1rem 0}
+blockquote{margin:1.1rem 0;padding:.95rem 1.15rem;border-radius:7px;font-size:.95rem}
+blockquote.quote{background:var(--accent-soft);border-left:3px solid var(--accent);color:var(--ink)}
+blockquote.tip{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--ink-3);
+  color:var(--ink-2);font-size:.89rem}
+blockquote.must{background:var(--accent-soft);border:2px solid var(--accent);
+  color:var(--ink);font-size:.93rem;font-weight:600}
+.flow{background:var(--card);border:1px solid var(--rule);border-radius:7px;
+  padding:1rem 1.15rem;margin:1.1rem 0;font-size:.9rem;color:var(--ink-2);line-height:1.9;
+  font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto;margin:1.1rem 0}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th{text-align:left;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);border-bottom:1px solid var(--rule);padding:.5rem .7rem .45rem}
+td{padding:.55rem .7rem;border-bottom:1px solid var(--rule-2);vertical-align:top}
+td:first-child{font-weight:640;white-space:nowrap}
+.note{background:var(--card);border:1px solid var(--rule);border-radius:8px;
+  padding:1.2rem 1.4rem;margin:2rem 0}
+.note h3{margin-top:0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:.7rem;margin:1.8rem 0 0}
+.stat{background:var(--card);border:1px solid var(--rule);border-radius:7px;padding:.75rem .85rem}
+.stat b{display:block;font-size:1.32rem;font-weight:700;letter-spacing:-.01em}
+.stat span{display:block;font-size:.7rem;color:var(--ink-3);text-transform:uppercase;
+  letter-spacing:.07em;margin-top:.12rem}
+@media (max-width:700px){
+  .wrap{padding:0 1.15rem 4rem}
+  .head{padding:1.2rem 1.15rem}
+  .head h1{font-size:1.42rem}
+  .stats{grid-template-columns:1fr 1fr}
+}
+</style>
+
+<div class="wrap">
+<div class="masthead">
+  <p class="brand">Heart Health</p>
+  <p class="set">UGC Creator Brief &mdash; Hip Therapy Belt</p>
+  <p class="which">Script: The Authority</p>
+</div>
+
+<div class="head">
+  <span class="tag">Female Creator</span>
+  <h1>The Authority</h1>
+  <p class="eyebrow">Heart Health Hip Therapy Belt &middot; 60&ndash;90 seconds</p>
+  <em>Someone who knows about chronic pain and explains WHY this works, not just THAT it works.</em>
+</div>
+
+<div class="stats">
+  <div class="stat"><b>60&ndash;90s</b><span>Script Length</span></div>
+  <div class="stat"><b>$149.99</b><span>50% Off RRP</span></div>
+  <div class="stat"><b>4</b><span>Therapies</span></div>
+  <div class="stat"><b>30 Days</b><span>Money Back</span></div>
+</div>
+
+<hr>
+
+<h2>Quick Product Overview</h2>
+<p>The Heart Health Hip Therapy Belt combines four therapies in one cordless, rechargeable belt:</p>
+<ul>
+  <li><strong>Red light therapy</strong> (660nm) &mdash; increases blood flow, helps cells repair</li>
+  <li><strong>Near-infrared therapy</strong> (850nm) &mdash; penetrates deeper into the joint and tissue</li>
+  <li><strong>Heat therapy</strong> &mdash; 3 levels, opens blood vessels so everything else can do its job</li>
+  <li><strong>Vibration massage</strong> &mdash; 3 settings, loosens muscles, gets blood moving</li>
+</ul>
+<p>Strap it on, press go, sit down for 15&ndash;20 minutes. That's it.</p>
+<p><strong>Product page:</strong> <a href="https://hearthealthco.com.au/pages/hb1" target="_blank" rel="noopener">hearthealthco.com.au/pages/hb1</a></p>
+
+<hr>
+
+<h2>What This Ad Is About</h2>
+<p>This is the authority version. Someone who understands chronic pain &mdash; not a doctor, but someone who's done the reading, tried the things, knows why most of them don't work. She positions herself as the person who can explain what's actually going on inside the hip, and why this belt addresses it at the right depth.</p>
+<p>The hook is deliberately provocative ("I need to talk about what I strap on every night before bed") and the energy is confident, knowledgeable, no-nonsense. She's explaining, not selling.</p>
+<p>The big payoff is sleep. Everything in this script leads to: she sleeps through the night now.</p>
+<p><strong>One idea:</strong> Most things don't reach deep enough. This one does. Here's why.</p>
+
+<hr>
+
+<h2>Your Script Guide</h2>
+<p><strong>This is NOT a script to memorise.</strong> Read it. Get the feeling. Then talk naturally, in your own words. The must-do is the Sydney claim, calling out that this isn't from Amazon, and the product explanation with wavelengths. Everything else &mdash; say it your way.</p>
+
+<h3>Direct to camera, confident</h3>
+<blockquote class="quote">I need to talk about what I strap on every night before bed.</blockquote>
+<blockquote class="quote">Calm down.</blockquote>
+
+<h3>Shows the belt</h3>
+<blockquote class="quote">What I'm actually talking about is this hip therapy belt. If you follow me you know I'm always going on about how chronic pain rewires the way you move, the way you sleep, how your whole body starts compensating. I talk about how most people just mask it with painkillers and hope it sorts itself out.</blockquote>
+<blockquote class="quote">This is the thing that actually addresses it. This is a 4-in-1 therapy belt. I'm gonna put it on and walk you through it.</blockquote>
+
+<h3>Puts belt on, walks through each therapy</h3>
+<blockquote class="quote">All right, belt's on. Now why did I go with this one? Because I've seen a lot of these light therapy wraps floating around. Most of them are those cheap ones off Amazon with no warranty that feel like a hot water bottle wrapped in velcro. This is engineered in Sydney. Actual Australian company. They put a year's warranty on it. Nobody does that unless the thing actually works. And you've got thirty days to send it back if it doesn't.</blockquote>
+
+<blockquote class="quote">Now here's what makes it different. You've got red light at 660 nanometres hitting the surface inflammation. You've got near-infrared at 850 nanometres going deeper into the joint, into the tissue where the pain actually lives. Three levels of heat. Three levels of vibration massage. Four therapies running at the same time. That's not a heat pad. That's not a compression sleeve. That's a completely different thing.</blockquote>
+
+<h3>Demonstrates simplicity</h3>
+<blockquote class="quote">Let me show you how simple this is. You wrap it around, tighten the strap, press one button. That's it. Fifteen minutes while you watch telly or have a cup of tea. Completely wireless so you're not tethered to a wall.</blockquote>
+
+<h3>The payoff &mdash; sleep</h3>
+<blockquote class="quote">The reason I use it every night is the sleep. If you've got hip pain you know what I'm talking about. You can't roll over without it catching. You wake up stiff. You're planning which side to lie on before you even get into bed. This has changed that for me. Better sleep, less stiffness in the morning, and I actually get out of bed without the warm-up routine.</blockquote>
+
+<h3>Close</h3>
+<blockquote class="quote">Bonus points if you pair it with a proper walk every day. The belt handles the recovery. The movement handles the strength. That combination is where people actually start turning the corner.</blockquote>
+<blockquote class="quote">If you've got any questions about this, drop a comment or message me.</blockquote>
+
+<hr>
+
+<h2>The Bigger Claim &mdash; You Must Cover This</h2>
+<blockquote class="must">This section is mandatory. Every creator must cover this in their own words, naturally inside the story.</blockquote>
+<p>In this script, the bigger claim is embedded in the product explanation &mdash; the authority positioning makes it natural. You're comparing this to cheap Amazon wraps and explaining why it's different.</p>
+<p>The four things that matter:</p>
+<ul>
+  <li><strong>Engineered and designed in Sydney</strong> &mdash; say it, own it, contrast it with the cheap imports</li>
+  <li><strong>Not from Amazon</strong> &mdash; "those cheap ones off Amazon with no warranty that feel like a hot water bottle wrapped in velcro"</li>
+  <li><strong>30-day money-back guarantee</strong> &mdash; "thirty days to send it back if it doesn't"</li>
+  <li><strong>1-year warranty</strong> &mdash; "nobody does that unless the thing actually works"</li>
+</ul>
+<p><strong>Film your screen:</strong> scroll the website, show the warranty page, show "Designed in Sydney." Hold each screen steady for 5 seconds, brightness up, no reflections. These clips are gold.</p>
+
+<hr>
+
+<h2>The Emotional Flow</h2>
+<div class="flow">Provocative hook &rarr; authority positioning (I know about chronic pain) &rarr; why cheap alternatives fail &rarr; deep product explanation with real wavelengths &rarr; the payoff: sleep &rarr; practical advice (pair it with walking)</div>
+<p>This is an education video. The viewer should walk away feeling like they understand WHY it works, not just that someone likes it.</p>
+
+<hr>
+
+<h2>How To Film This</h2>
+
+<h3>Clothing</h3>
+<blockquote class="must">Wear light-coloured pants and a light-coloured shirt. Not dark. The belt is dark, and it needs to be visible against your clothing in every shot.</blockquote>
+<p>Think: light grey, cream, white, soft blue, beige. No black jeans, no dark tops.</p>
+
+<h3>The Shape Of The Video</h3>
+<p><strong>The first thing we see:</strong> You, direct to camera, confident. This script is an exception &mdash; you CAN start on your face because the hook is the words, not a visual. But if you can start on the belt in your hands while your voice comes in, even better.</p>
+
+<p><strong>Problem / setup (~20%):</strong> Quick authority positioning. Chronic pain rewires movement. Most people mask it with painkillers. You know this stuff.</p>
+<p><strong>Product explanation (~15%):</strong> This is the detailed part. Walk through all four therapies with wavelengths. Compare to cheap Amazon wraps. Mention Sydney, warranty, thirty days. This is where your knowledge shows.</p>
+<p><strong>What changed (~65%):</strong> The sleep. Rolling over. Stiffness. Getting out of bed. Then the bonus: pairing it with a daily walk. The belt handles recovery, the movement handles strength.</p>
+
+<h3>Tone</h3>
+<p>Confident, knowledgeable, no-nonsense. Like a friend who's done the research and is explaining it to you over coffee. Not clinical, not salesy &mdash; just someone who genuinely understands the problem and found something that works.</p>
+
+<hr>
+
+<h2>Before and After Scenes</h2>
+<p><strong>Same room. Same angle. Same clothes. Same distance.</strong> The viewer sees the change, not hears about it.</p>
+<p>The belt must be visible in at least half the "after" shots &mdash; on you, or sitting in frame.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Scene</th><th>Before</th><th>After</th></tr></thead>
+<tbody>
+  <tr><td>Bed &mdash; rolling</td><td>Lying in bed, trying to roll over, pain catching</td><td>Rolling over easily, sleeping through</td></tr>
+  <tr><td>Bed &mdash; morning</td><td>Waking up stiff, warm-up routine, slow to move</td><td>Gets out of bed, walks off, no warm-up needed</td></tr>
+  <tr><td>Belt on at night</td><td>No belt &mdash; lying in bed shifting positions</td><td>Belt on, relaxing, 15 min before sleep</td></tr>
+  <tr><td>Walking</td><td>Short walk, stopping to rest</td><td>Proper daily walk, easy stride</td></tr>
+  <tr><td>Sitting to standing</td><td>Stiff after sitting, slow to straighten up</td><td>Gets up and moves normally</td></tr>
+  <tr><td>Night toilet</td><td>Getting up at night, slow and sore</td><td>Gets up, goes, comes back, no drama</td></tr>
+</tbody>
+</table></div>
+
+<hr>
+
+<h2>B-Roll Checklist</h2>
+<p>Film each shot as a <strong>separate clip</strong>. 5&ndash;15 seconds per clip, hold steady. No talking in b-roll. Natural light, near a window is perfect. 9:16 vertical.</p>
+
+<div class="tw"><table>
+<thead><tr><th>File Name</th><th>What To Film</th></tr></thead>
+<tbody>
+  <tr><td><code>VIDEO_bed_rolling_before</code></td><td>Trying to roll over in bed, pain catching</td></tr>
+  <tr><td><code>VIDEO_bed_rolling_after</code></td><td>Rolling over easily, comfortable</td></tr>
+  <tr><td><code>VIDEO_bed_morning_before</code></td><td>Waking up stiff, warm-up routine</td></tr>
+  <tr><td><code>VIDEO_bed_morning_after</code></td><td>Gets out of bed, walks off normally</td></tr>
+  <tr><td><code>VIDEO_belt_nightroutine</code></td><td>Putting belt on at night, settling in, 15 min</td></tr>
+  <tr><td><code>VIDEO_belt_redglow_dim</code></td><td>Red light glow in dim bedroom, three angles</td></tr>
+  <tr><td><code>VIDEO_belt_strapon</code></td><td>Wrapping it around, tightening strap, pressing button</td></tr>
+  <tr><td><code>VIDEO_belt_settings</code></td><td>Cycling through heat and vibration settings</td></tr>
+  <tr><td><code>VIDEO_belt_cordless</code></td><td>Showing it's wireless, no cables, flipping it over</td></tr>
+  <tr><td><code>VIDEO_belt_inside</code></td><td>Close-up of the inside &mdash; LEDs, panels, build quality</td></tr>
+  <tr><td><code>VIDEO_walking_easy</code></td><td>Proper daily walk, easy stride</td></tr>
+  <tr><td><code>VIDEO_sitting_getup_before</code></td><td>Stiff after sitting, slow to stand</td></tr>
+  <tr><td><code>VIDEO_sitting_getup_after</code></td><td>Gets up, moves normally</td></tr>
+  <tr><td><code>VIDEO_belt_charging</code></td><td>Charging, indicator light visible</td></tr>
+  <tr><td><code>VIDEO_belt_couch_telly</code></td><td>Wearing it on couch watching telly, casual</td></tr>
+  <tr><td><code>VIDEO_screen_website</code></td><td>Scrolling the website, warranty page, "Designed in Sydney"</td></tr>
+  <tr><td><code>PICTURE_belt_nightstand</code></td><td>Belt on nightstand, part of the nightly routine</td></tr>
+  <tr><td><code>PICTURE_belt_wearing</code></td><td>Wearing the belt, lifestyle shot</td></tr>
+  <tr><td><code>PICTURE_product_laid_out</code></td><td>Belt, charger, warranty card laid out</td></tr>
+</tbody>
+</table></div>
+
+<hr>
+
+<h2>Making It Sound Like You And Not Like An Ad</h2>
+<ul>
+  <li><strong>Don't act the pain.</strong> By now she's used to it. She works around it and carries on. Underplay it every time</li>
+  <li><strong>Slow down.</strong> Real people talk slower than actors and leave gaps. If it feels too slow, it's about right</li>
+  <li><strong>Own the authority, don't perform it.</strong> Talk about wavelengths and chronic pain like you'd explain it to a friend, not like you're giving a lecture</li>
+  <li><strong>Swap our words for your words.</strong> Keep the specifics &mdash; the wavelengths, the sleep, the morning stiffness. Change everything around them into how you'd actually say it</li>
+  <li><strong>Keep the first take.</strong> Stumbles, restarts, losing your thread &mdash; that's what we want. If you nail it cleanly, do another one worse</li>
+  <li><strong>Talk to one person, not a camera.</strong> Pick someone you know and tell it to them</li>
+  <li><strong>Don't land the ending.</strong> Trail off, shrug, look away. A clean confident finish is what makes something look like a commercial</li>
+  <li><strong>No smiling at the end.</strong> That one thing gives it away more than anything else</li>
+</ul>
+<blockquote class="quote">If you get to the end and it felt a bit flat and unfinished, that's usually the take we want.</blockquote>
+
+<hr>
+
+<h2>Technical Specs</h2>
+<div class="tw"><table><tbody>
+  <tr><td>Format</td><td>9:16 vertical</td></tr>
+  <tr><td>Resolution</td><td>1080 x 1920 minimum</td></tr>
+  <tr><td>FPS</td><td>30</td></tr>
+  <tr><td>Length</td><td>60 to 90 sec (main) + 15 to 30 sec (short cut)</td></tr>
+  <tr><td>Subtitles</td><td>Don't add, we handle it</td></tr>
+  <tr><td>Music</td><td>Don't add, we handle it</td></tr>
+  <tr><td>Filters and effects</td><td>None, keep it natural</td></tr>
+  <tr><td>Watermarks</td><td>No TikTok or Reels watermarks on raw files</td></tr>
+</tbody></table></div>
+
+<hr>
+
+<h2>What To Send Us</h2>
+<ul>
+  <li><strong>1 main video</strong> (60 to 90 sec) &mdash; your full story</li>
+  <li><strong>1 short version</strong> (15 to 30 sec) &mdash; best hook plus one key moment plus the close</li>
+  <li><strong>All your raw footage</strong> &mdash; unedited, everything, outtakes included</li>
+  <li><strong>2 to 3 photos</strong> &mdash; natural, lifestyle, wearing the belt</li>
+</ul>
+<p>If you've got outtakes, alternate angles, false starts, the takes you nearly deleted &mdash; send those too. Some of the best moments come out of those.</p>
+
+<hr>
+
+<h2>Product Links</h2>
+<p><strong>Landing page:</strong> <a href="https://hearthealthco.com.au/pages/hb1" target="_blank" rel="noopener">hearthealthco.com.au/pages/hb1</a></p>
+
+<hr>
+
+<h2>Rights and Payment</h2>
+<div class="tw"><table><tbody>
+  <tr><td>Payment</td><td>To be confirmed</td></tr>
+  <tr><td>Video length</td><td>60 to 90 seconds</td></tr>
+  <tr><td>Usage</td><td>Paid ads, organic social, website</td></tr>
+</tbody></table></div>
+
+<hr>
+
+<h2>Timeline</h2>
+<div class="tw"><table><tbody>
+  <tr><td>Brief sent</td><td></td></tr>
+  <tr><td>Product delivered</td><td></td></tr>
+  <tr><td>Footage due</td><td></td></tr>
+</tbody></table></div>
+
+<hr>
+
+<h2>Questions?</h2>
+<p>Message us any time before or during filming. If you're unsure whether something is worth filming, film it. We'd much rather have it and not use it.</p>
+<p><em>This brief is between us. Please don't share it publicly.</em></p>
+</div>

@@ -1,0 +1,321 @@
+<title>The Gardener, Creator Brief</title>
+<style>
+:root{
+  --bg:#F7F4EE; --card:#FFFDF9; --ink:#22201C; --ink-2:#5B554C; --ink-3:#8A8377;
+  --rule:#E2DCD0; --rule-2:#EFEAE0;
+  --hip:#B4531F; --hip-soft:#FBEDE4;
+  --accent:var(--hip); --accent-soft:var(--hip-soft);
+  --keep:#4C7A3F;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#16150F; --card:#1E1D16; --ink:#F0EBDF; --ink-2:#B3AC9C; --ink-3:#847D6D;
+  --rule:#332F25; --rule-2:#26241C;
+  --hip:#E08B54; --hip-soft:#2B1D12;
+  --keep:#8FC07C;
+}}
+:root[data-theme="dark"]{
+  --bg:#16150F; --card:#1E1D16; --ink:#F0EBDF; --ink-2:#B3AC9C; --ink-3:#847D6D;
+  --rule:#332F25; --rule-2:#26241C;
+  --hip:#E08B54; --hip-soft:#2B1D12;
+  --keep:#8FC07C;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:47rem;margin:0 auto;padding:0 1.6rem 6rem}
+.masthead{padding:2.6rem 0 1.6rem;border-bottom:1px solid var(--rule);margin-bottom:2.4rem}
+.masthead .brand{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin:0 0 .35rem}
+.masthead .set{font-size:1.06rem;font-weight:700;margin:0;letter-spacing:-.008em}
+.masthead .which{font-size:.85rem;color:var(--ink-3);margin:.2rem 0 0}
+.head{background:var(--accent-soft);border-left:3px solid var(--accent);
+  border-radius:0 8px 8px 0;padding:1.5rem 1.6rem;margin-bottom:2.2rem}
+.head .tag{display:inline-block;font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;
+  font-weight:700;color:var(--accent);border:1px solid var(--accent);border-radius:100px;
+  padding:.18rem .6rem;margin-bottom:.7rem}
+.head h1{font-size:1.72rem;line-height:1.16;margin:0 0 .4rem;letter-spacing:-.018em;font-weight:750}
+.head .eyebrow{margin:0;font-size:.83rem;color:var(--ink-2);font-weight:600}
+.head em{color:var(--ink-2);font-size:.9rem;font-style:normal;display:block;margin-top:.35rem}
+h2{font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;
+  color:var(--accent);margin:2.6rem 0 .85rem;padding-bottom:.45rem;border-bottom:1px solid var(--rule)}
+h3{font-size:1.02rem;margin:1.9rem 0 .55rem;font-weight:700;letter-spacing:-.01em}
+h4{font-size:.94rem;margin:1.9rem 0 .6rem;font-weight:700;color:var(--ink);
+  padding-left:.7rem;border-left:3px solid var(--accent)}
+p{margin:.75rem 0}
+ul{margin:.7rem 0;padding-left:1.15rem}
+li{margin:.34rem 0}
+a{color:var(--accent)}
+strong{font-weight:670}
+code{background:var(--rule-2);padding:.1em .35em;border-radius:3px;font-size:.9em}
+hr{border:0;border-top:1px solid var(--rule-2);margin:2.1rem 0}
+blockquote{margin:1.1rem 0;padding:.95rem 1.15rem;border-radius:7px;font-size:.95rem}
+blockquote.quote{background:var(--accent-soft);border-left:3px solid var(--accent);color:var(--ink)}
+blockquote.tip{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--ink-3);
+  color:var(--ink-2);font-size:.89rem}
+blockquote.must{background:var(--accent-soft);border:2px solid var(--accent);
+  color:var(--ink);font-size:.93rem;font-weight:600}
+.flow{background:var(--card);border:1px solid var(--rule);border-radius:7px;
+  padding:1rem 1.15rem;margin:1.1rem 0;font-size:.9rem;color:var(--ink-2);line-height:1.9;
+  font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto;margin:1.1rem 0}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th{text-align:left;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);border-bottom:1px solid var(--rule);padding:.5rem .7rem .45rem}
+td{padding:.55rem .7rem;border-bottom:1px solid var(--rule-2);vertical-align:top}
+td:first-child{font-weight:640;white-space:nowrap}
+.note{background:var(--card);border:1px solid var(--rule);border-radius:8px;
+  padding:1.2rem 1.4rem;margin:2rem 0}
+.note h3{margin-top:0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:.7rem;margin:1.8rem 0 0}
+.stat{background:var(--card);border:1px solid var(--rule);border-radius:7px;padding:.75rem .85rem}
+.stat b{display:block;font-size:1.32rem;font-weight:700;letter-spacing:-.01em}
+.stat span{display:block;font-size:.7rem;color:var(--ink-3);text-transform:uppercase;
+  letter-spacing:.07em;margin-top:.12rem}
+@media (max-width:700px){
+  .wrap{padding:0 1.15rem 4rem}
+  .head{padding:1.2rem 1.15rem}
+  .head h1{font-size:1.42rem}
+  .stats{grid-template-columns:1fr 1fr}
+}
+</style>
+
+<div class="wrap">
+<div class="masthead">
+  <p class="brand">Heart Health</p>
+  <p class="set">UGC Creator Brief &mdash; Hip Therapy Belt</p>
+  <p class="which">Script: The Gardener</p>
+</div>
+
+<div class="head">
+  <span class="tag">Female Creator</span>
+  <h1>The Gardener</h1>
+  <p class="eyebrow">Heart Health Hip Therapy Belt &middot; 60&ndash;90 seconds</p>
+  <em>A woman who stopped going out to the garden. And then stopped doing a lot of other things too.</em>
+</div>
+
+<div class="stats">
+  <div class="stat"><b>60&ndash;90s</b><span>Script Length</span></div>
+  <div class="stat"><b>$149.99</b><span>50% Off RRP</span></div>
+  <div class="stat"><b>4</b><span>Therapies</span></div>
+  <div class="stat"><b>30 Days</b><span>Money Back</span></div>
+</div>
+
+<hr>
+
+<h2>Quick Product Overview</h2>
+<p>The Heart Health Hip Therapy Belt combines four therapies in one cordless, rechargeable belt:</p>
+<ul>
+  <li><strong>Red light therapy</strong> (660nm) &mdash; increases blood flow, helps cells repair</li>
+  <li><strong>Near-infrared therapy</strong> (850nm) &mdash; penetrates deeper into the joint and tissue</li>
+  <li><strong>Heat therapy</strong> &mdash; 3 levels, opens blood vessels so everything else can do its job</li>
+  <li><strong>Vibration massage</strong> &mdash; 3 settings, loosens muscles, gets blood moving</li>
+</ul>
+<p>Strap it on, press go, sit down for 15&ndash;20 minutes. That's it.</p>
+<p><strong>Product page:</strong> <a href="https://hearthealthco.com.au/pages/hb1" target="_blank" rel="noopener">hearthealthco.com.au/pages/hb1</a></p>
+
+<hr>
+
+<h2>What This Ad Is About</h2>
+<p>This is a woman who gave up gardening. Then she gave up the full dog walk. Then she stopped getting in the car without a plan. She didn't announce any of it. She just quietly stopped doing things, one at a time, until she forgot she'd ever done them.</p>
+<p>That's the truth this ad sits in. Not the pain itself &mdash; the slow giving-up.</p>
+<p>But here's the thing: <strong>this is not a sad ad.</strong> You show the problem quickly, then spend most of the video on what came back. The garden. The dog. The car. The shoes. That's what UGC is &mdash; showing the outcome, not performing the pain.</p>
+<p><strong>One idea:</strong> She thought this was over for her. It wasn't.</p>
+
+<hr>
+
+<h2>Your Script Guide</h2>
+<p><strong>This is NOT a script to memorise.</strong> Read it. Get the feeling. Then talk naturally, in your own words. Wander. Correct yourself. Trail off. That's what makes it real.</p>
+<p>Your detail will be different, and better, because it's yours. The must-do is the Sydney claim and calling out that this isn't from Amazon. Everything else &mdash; say it your way.</p>
+
+<h3>Camera on your hands in the garden, pulling a weed</h3>
+<blockquote class="quote">I haven't done this in... god, I don't know. A year? More than a year.</blockquote>
+
+<h3>Sits back on heels, looks at camera</h3>
+<blockquote class="quote">My hip got bad enough that I stopped coming out here. And then I stopped walking the dog. And then I'd get to the car and just sort of... stand there, working out how to get in without it catching. You start planning everything around it. The shortest route through Woolies. Which chair to sit in at someone's house. Whether there's stairs.</blockquote>
+
+<h3>Holds up the belt</h3>
+<blockquote class="quote">This is not something I'd normally buy. I'm not a gadget person. But my friend had one and she said "it's not what you think." And I actually looked into it &mdash; it's engineered in Sydney. Like, a real Australian company. Not one of those random things off Amazon that you use twice and it ends up in a drawer. They put a year's warranty on it. Nobody does that unless they actually stand behind it. And you've got thirty days &mdash; if it does nothing, send it back. So I thought fine, what am I actually risking.</blockquote>
+
+<h3>Wearing it on the couch, cup of tea</h3>
+<blockquote class="quote">You just wear it and sit down. Red light, heat, vibration. Fifteen minutes while I have my tea. That's it.</blockquote>
+
+<h3>Getting into the car. Slides in. No performance.</h3>
+<blockquote class="quote">I got in the car the other day and my husband looked at me like... what just happened. Because I didn't do the thing. You know the thing &mdash; where you hold the door, lower yourself in, then swing your legs around? I just... got in.</blockquote>
+
+<h3>Walking the dog. Easy stride. Full lead.</h3>
+<blockquote class="quote">She gets her walk again. I think she'd given up asking, honestly.</blockquote>
+
+<h3>Bending to pick something up off the floor. No hesitation.</h3>
+<blockquote class="quote">The little things are what get you. Picking something up. Getting off the couch without the countdown. Putting shoes on without sitting down first. You don't realise how many things you'd stopped doing until you start doing them again.</blockquote>
+
+<h3>Back in the garden. Kneeling. Hands in soil.</h3>
+<blockquote class="quote">I'm out here now. That's all I really wanted to say.</blockquote>
+<blockquote class="quote">[Long pause. Looks around the garden.]</blockquote>
+<blockquote class="quote">I thought this was over for me. So... it wasn't.</blockquote>
+
+<hr>
+
+<h2>The Bigger Claim &mdash; You Must Cover This</h2>
+<blockquote class="must">This section is mandatory. Every creator must cover this in their own words, naturally inside the story.</blockquote>
+<p>Your viewer has been burned before. She's bought things that did nothing. So somewhere in your video, show her you checked this one out.</p>
+<p>The four things that matter:</p>
+<ul>
+  <li><strong>Engineered and designed in Sydney</strong> &mdash; say it, own it, make it a big deal</li>
+  <li><strong>Not from Amazon</strong> &mdash; this is not a cheap import. Call it out directly</li>
+  <li><strong>30-day money-back guarantee</strong> &mdash; "that's all you can lose. Thirty days."</li>
+  <li><strong>1-year warranty</strong> &mdash; "nobody puts a year's warranty on something that doesn't work"</li>
+</ul>
+<p><strong>Tone:</strong> like you're telling a friend "I actually checked this one out before I bought it."</p>
+<p><strong>Film your screen:</strong> scroll the website, show the warranty page, show "Designed in Sydney." Hold each screen steady for 5 seconds, brightness up, no reflections. These clips are gold.</p>
+
+<hr>
+
+<h2>The Emotional Flow</h2>
+<div class="flow">Quietly gave things up, one at a time &rarr; stopped even noticing what she'd lost &rarr; sceptical but curious &rarr; the little things coming back &rarr; back in the garden &rarr; relief, not excitement</div>
+<p>This is not a celebration video. It's a relief video. The ending is quiet. She's back in the garden and that's enough.</p>
+
+<hr>
+
+<h2>How To Film This</h2>
+
+<h3>Clothing</h3>
+<blockquote class="must">Wear light-coloured pants and a light-coloured shirt. Not dark. The belt is dark, and it needs to be visible against your clothing in every shot.</blockquote>
+<p>Think: light grey, cream, white, soft blue, beige. No black jeans, no dark tops.</p>
+
+<h3>The Shape Of The Video</h3>
+<p><strong>The first thing we see:</strong> Your hands in the garden, pulling a weed or touching soil. NOT your face. Two seconds of this before your voice comes in.</p>
+<p>Two rules for the opening:</p>
+<ul>
+  <li><strong>Don't start on your face.</strong> Start on the thing, or on the movement</li>
+  <li><strong>Don't say hello and don't introduce yourself.</strong> Come in as though we've walked in halfway through</li>
+</ul>
+
+<p><strong>Tell it (~20% of the video):</strong> What you stopped doing. Be specific. Not "my hip hurts" &mdash; the garden, the dog, the car door, the route through Woolies.</p>
+<p><strong>Show the product (~15%):</strong> Pick it up like something you use every day. Mention the four therapies. Show yourself wearing it on the couch with a cuppa. Mention it's designed in Sydney, not Amazon, year's warranty, thirty days to send it back.</p>
+<p><strong>What changed (~65%):</strong> Stack the "finally" moments. The car. The dog. Picking things up. The shoes. The couch. Back in the garden. This is the bulk of the video &mdash; the outcome, not the problem.</p>
+
+<h3>Tone</h3>
+<p>Think: telling a friend something you've been quietly putting up with. Not upset. Not dramatic. Just honest, a bit tired of it, and then genuinely surprised it came back.</p>
+
+<hr>
+
+<h2>Before and After Scenes</h2>
+<p><strong>Same room. Same angle. Same clothes. Same distance.</strong> The viewer sees the change, not hears about it.</p>
+<p>The belt must be visible in at least half the "after" shots &mdash; on you, or sitting in frame.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Scene</th><th>Before</th><th>After</th></tr></thead>
+<tbody>
+  <tr><td>Garden</td><td>Standing at the edge, looking at it, not going in</td><td>Kneeling, hands in soil, belt visible nearby</td></tr>
+  <tr><td>Car</td><td>Holding door, lowering in slowly, swinging legs around</td><td>Slides in, one motion, no performance</td></tr>
+  <tr><td>Dog walk</td><td>Lead hanging on hook, dog looking at it</td><td>Walking the dog, easy stride, full lead</td></tr>
+  <tr><td>Picking up</td><td>Something on the floor, looking at it, deciding whether to bother</td><td>Bends down, picks it up, no hesitation</td></tr>
+  <tr><td>Shoes</td><td>Sitting down to put shoes on, struggling to bend</td><td>Blundies on standing up, no chair needed</td></tr>
+  <tr><td>Couch</td><td>The countdown &mdash; bracing, leaning forward, pushing up</td><td>Gets up and walks away. Just gets up</td></tr>
+  <tr><td>Woolies</td><td>Mapping the shortest route, tired by aisle 3</td><td>Full shop, no route planning</td></tr>
+</tbody>
+</table></div>
+
+<hr>
+
+<h2>B-Roll Checklist</h2>
+<p>Film each shot as a <strong>separate clip</strong>. 5&ndash;15 seconds per clip, hold steady. No talking in b-roll. Natural light, near a window is perfect. 9:16 vertical.</p>
+
+<div class="tw"><table>
+<thead><tr><th>File Name</th><th>What To Film</th></tr></thead>
+<tbody>
+  <tr><td><code>VIDEO_garden_hands_before</code></td><td>Standing at garden edge, not going in</td></tr>
+  <tr><td><code>VIDEO_garden_kneeling_after</code></td><td>Kneeling in garden, hands in soil</td></tr>
+  <tr><td><code>VIDEO_car_struggle_before</code></td><td>Holding door, lowering in, swinging legs</td></tr>
+  <tr><td><code>VIDEO_car_easy_after</code></td><td>Sliding in the car, one smooth motion</td></tr>
+  <tr><td><code>VIDEO_dog_lead_hook_before</code></td><td>Lead hanging on hook, dog looking up at it</td></tr>
+  <tr><td><code>VIDEO_dog_walking_after</code></td><td>Walking the dog, easy stride, full loop</td></tr>
+  <tr><td><code>VIDEO_pickup_looking_before</code></td><td>Something on the floor, deciding whether to bother</td></tr>
+  <tr><td><code>VIDEO_pickup_easy_after</code></td><td>Bending down and picking it up, no hesitation</td></tr>
+  <tr><td><code>VIDEO_shoes_sitting_before</code></td><td>Sitting down, struggling to bend for shoes</td></tr>
+  <tr><td><code>VIDEO_shoes_standing_after</code></td><td>Putting Blundies on standing up</td></tr>
+  <tr><td><code>VIDEO_couch_struggle_before</code></td><td>The countdown &mdash; bracing, leaning, pushing up</td></tr>
+  <tr><td><code>VIDEO_couch_easy_after</code></td><td>Gets up from couch, walks off. Done</td></tr>
+  <tr><td><code>VIDEO_belt_unbox</code></td><td>Opening the box, first look, turning it over</td></tr>
+  <tr><td><code>VIDEO_belt_redglow</code></td><td>Red light on, room dimmed, three angles</td></tr>
+  <tr><td><code>VIDEO_belt_strapon</code></td><td>Strapping it on, adjusting, pressing go</td></tr>
+  <tr><td><code>VIDEO_belt_couch_tea</code></td><td>Wearing it on the couch with a cuppa, 15 min</td></tr>
+  <tr><td><code>VIDEO_belt_charging</code></td><td>Charging the belt, indicator light visible</td></tr>
+  <tr><td><code>VIDEO_belt_cordless</code></td><td>Showing it's cordless &mdash; flip it, no wires</td></tr>
+  <tr><td><code>VIDEO_screen_website</code></td><td>Scrolling the website, warranty page, "Designed in Sydney"</td></tr>
+  <tr><td><code>PICTURE_garden_kneeling</code></td><td>Natural shot, kneeling in the garden, belt nearby</td></tr>
+  <tr><td><code>PICTURE_belt_couch</code></td><td>Wearing belt on the couch, lifestyle shot</td></tr>
+  <tr><td><code>PICTURE_product_box</code></td><td>Belt, charger, warranty card laid out</td></tr>
+</tbody>
+</table></div>
+
+<hr>
+
+<h2>Making It Sound Like You And Not Like An Ad</h2>
+<ul>
+  <li><strong>Don't act the pain.</strong> By now she's used to it. She works around it and carries on. Underplay it every time</li>
+  <li><strong>Slow down.</strong> Real people talk slower than actors and leave gaps. If it feels too slow, it's about right</li>
+  <li><strong>Do the thing first, talk second.</strong> Kneel in the garden, then say the line. Not the other way round</li>
+  <li><strong>Swap our words for your words.</strong> Keep the specifics &mdash; the garden, the car, the dog. Change everything around them into how you'd actually say it</li>
+  <li><strong>Keep the first take.</strong> Stumbles, restarts, losing your thread &mdash; that's what we want. If you nail it cleanly, do another one worse</li>
+  <li><strong>Talk to one person, not a camera.</strong> Pick someone you know and tell it to them</li>
+  <li><strong>Don't land the ending.</strong> Trail off, shrug, look away. A clean confident finish is what makes something look like a commercial</li>
+  <li><strong>No smiling at the end.</strong> That one thing gives it away more than anything else</li>
+</ul>
+<blockquote class="quote">If you get to the end and it felt a bit flat and unfinished, that's usually the take we want.</blockquote>
+
+<hr>
+
+<h2>Technical Specs</h2>
+<div class="tw"><table><tbody>
+  <tr><td>Format</td><td>9:16 vertical</td></tr>
+  <tr><td>Resolution</td><td>1080 x 1920 minimum</td></tr>
+  <tr><td>FPS</td><td>30</td></tr>
+  <tr><td>Length</td><td>60 to 90 sec (main) + 15 to 30 sec (short cut)</td></tr>
+  <tr><td>Subtitles</td><td>Don't add, we handle it</td></tr>
+  <tr><td>Music</td><td>Don't add, we handle it</td></tr>
+  <tr><td>Filters and effects</td><td>None, keep it natural</td></tr>
+  <tr><td>Watermarks</td><td>No TikTok or Reels watermarks on raw files</td></tr>
+</tbody></table></div>
+
+<hr>
+
+<h2>What To Send Us</h2>
+<ul>
+  <li><strong>1 main video</strong> (60 to 90 sec) &mdash; your full story</li>
+  <li><strong>1 short version</strong> (15 to 30 sec) &mdash; best hook plus one key moment plus the close</li>
+  <li><strong>All your raw footage</strong> &mdash; unedited, everything, outtakes included</li>
+  <li><strong>2 to 3 photos</strong> &mdash; natural, lifestyle, wearing the belt</li>
+</ul>
+<p>If you've got outtakes, alternate angles, false starts, the takes you nearly deleted &mdash; send those too. Some of the best moments come out of those.</p>
+
+<hr>
+
+<h2>Product Links</h2>
+<p><strong>Landing page:</strong> <a href="https://hearthealthco.com.au/pages/hb1" target="_blank" rel="noopener">hearthealthco.com.au/pages/hb1</a></p>
+
+<hr>
+
+<h2>Rights and Payment</h2>
+<div class="tw"><table><tbody>
+  <tr><td>Payment</td><td>To be confirmed</td></tr>
+  <tr><td>Video length</td><td>60 to 90 seconds</td></tr>
+  <tr><td>Usage</td><td>Paid ads, organic social, website</td></tr>
+</tbody></table></div>
+
+<hr>
+
+<h2>Timeline</h2>
+<div class="tw"><table><tbody>
+  <tr><td>Brief sent</td><td></td></tr>
+  <tr><td>Product delivered</td><td></td></tr>
+  <tr><td>Footage due</td><td></td></tr>
+</tbody></table></div>
+
+<hr>
+
+<h2>Questions?</h2>
+<p>Message us any time before or during filming. If you're unsure whether something is worth filming, film it. We'd much rather have it and not use it.</p>
+<p><em>This brief is between us. Please don't share it publicly.</em></p>
+</div>
