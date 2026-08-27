@@ -1,0 +1,742 @@
+<title>Don't Sacrifice Your Kidneys</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root {
+  --bg: #FAF9F7;
+  --bg-surface: #F1EFEB;
+  --bg-card: #FFFFFF;
+  --bg-kidney: #FFF5F5;
+  --bg-pill: #FFF8F0;
+  --bg-cost: #F0F5F0;
+  --bg-compare-left: #FEF0EE;
+  --bg-compare-right: #FEF6EE;
+  --text-primary: #1A1A18;
+  --text-secondary: #5A5A52;
+  --text-tertiary: #8A8A80;
+  --red: #C43B3B;
+  --red-deep: #8B2020;
+  --red-soft: rgba(196, 59, 59, 0.07);
+  --orange: #C46B2B;
+  --orange-soft: rgba(196, 107, 43, 0.07);
+  --green: #2B7A48;
+  --green-soft: rgba(43, 122, 72, 0.07);
+  --border: #E2E0DA;
+  --border-red: rgba(196, 59, 59, 0.2);
+  --rule: #D0CEC6;
+  --shadow: rgba(26, 26, 24, 0.06);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131312;
+    --bg-surface: #1C1C1A;
+    --bg-card: #222220;
+    --bg-kidney: #2A1818;
+    --bg-pill: #2A2218;
+    --bg-cost: #182A1E;
+    --bg-compare-left: #2A1C1A;
+    --bg-compare-right: #2A221A;
+    --text-primary: #EAEAE6;
+    --text-secondary: #A8A89E;
+    --text-tertiary: #6E6E64;
+    --red: #E05050;
+    --red-deep: #F07070;
+    --red-soft: rgba(224, 80, 80, 0.1);
+    --orange: #E08040;
+    --orange-soft: rgba(224, 128, 64, 0.1);
+    --green: #50B870;
+    --green-soft: rgba(80, 184, 112, 0.1);
+    --border: #333330;
+    --border-red: rgba(224, 80, 80, 0.25);
+    --rule: #3A3A36;
+    --shadow: rgba(0,0,0,0.2);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131312;
+  --bg-surface: #1C1C1A;
+  --bg-card: #222220;
+  --bg-kidney: #2A1818;
+  --bg-pill: #2A2218;
+  --bg-cost: #182A1E;
+  --bg-compare-left: #2A1C1A;
+  --bg-compare-right: #2A221A;
+  --text-primary: #EAEAE6;
+  --text-secondary: #A8A89E;
+  --text-tertiary: #6E6E64;
+  --red: #E05050;
+  --red-deep: #F07070;
+  --red-soft: rgba(224, 80, 80, 0.1);
+  --orange: #E08040;
+  --orange-soft: rgba(224, 128, 64, 0.1);
+  --green: #50B870;
+  --green-soft: rgba(80, 184, 112, 0.1);
+  --border: #333330;
+  --border-red: rgba(224, 80, 80, 0.25);
+  --rule: #3A3A36;
+  --shadow: rgba(0,0,0,0.2);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 840px; margin: 0 auto; padding: 48px 24px 80px; }
+@media (max-width: 600px) { .wrap { padding: 32px 16px 60px; } }
+
+/* HERO */
+.hero { margin-bottom: 48px; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 14px;
+}
+.hero h1 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(26px, 5vw, 40px); font-weight: 400;
+  line-height: 1.15; text-wrap: balance; margin-bottom: 14px;
+}
+.hero h1 em { font-style: italic; color: var(--red); }
+.hero-sub { font-size: 16px; color: var(--text-secondary); max-width: 620px; line-height: 1.6; }
+
+/* SECTION */
+.section { margin-bottom: 56px; }
+.sec-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 10px;
+}
+.section h2 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(21px, 3.5vw, 28px); font-weight: 400;
+  line-height: 1.25; text-wrap: balance; margin-bottom: 8px;
+}
+.sec-intro { color: var(--text-secondary); font-size: 14px; margin-bottom: 28px; max-width: 620px; }
+h3 { font-size: 16px; font-weight: 700; margin: 32px 0 12px; }
+h4 { font-size: 13px; font-weight: 600; color: var(--text-secondary); margin: 24px 0 8px; letter-spacing: 0.02em; }
+
+/* PILL COUNTER */
+.pill-counter {
+  background: var(--bg-pill);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px;
+  margin: 24px 0;
+}
+.pill-counter-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 16px;
+}
+.pill-row {
+  display: flex; align-items: baseline; gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.pill-row:last-child { border-bottom: none; }
+.pill-num {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 28px; color: var(--orange);
+  min-width: 100px; text-align: right;
+  line-height: 1;
+}
+.pill-desc { font-size: 14px; color: var(--text-secondary); }
+.pill-desc strong { color: var(--text-primary); font-weight: 600; }
+
+/* COST COMPARE */
+.cost-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 24px 0;
+}
+@media (max-width: 560px) { .cost-compare { grid-template-columns: 1fr; } }
+
+.cost-box {
+  border-radius: 10px;
+  padding: 24px;
+  border: 1px solid var(--border);
+}
+.cost-box--left { background: var(--bg-compare-left); }
+.cost-box--right { background: var(--bg-compare-right); }
+.cost-box--danger { background: var(--bg-kidney); border-color: var(--border-red); }
+
+.cost-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-tertiary); margin-bottom: 8px;
+}
+.cost-price {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 36px; line-height: 1.1; margin-bottom: 6px;
+}
+.cost-price--red { color: var(--red); }
+.cost-price--orange { color: var(--orange); }
+.cost-price--green { color: var(--green); }
+.cost-detail { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+.cost-source {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: var(--text-tertiary);
+  margin-top: 8px; word-break: break-all;
+}
+.cost-source a { color: var(--text-tertiary); text-decoration: none; border-bottom: 1px dotted var(--text-tertiary); }
+.cost-source a:hover { color: var(--red); }
+
+/* STAT GRID */
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 24px 0; }
+.stat-card { background: var(--bg-surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px; }
+.stat-num { font-family: 'DM Serif Display', Georgia, serif; font-size: 30px; color: var(--red); line-height: 1.1; margin-bottom: 5px; }
+.stat-num--orange { color: var(--orange); }
+.stat-lbl { font-size: 12px; color: var(--text-secondary); line-height: 1.4; }
+.stat-src { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-tertiary); margin-top: 6px; }
+.stat-src a { color: var(--text-tertiary); text-decoration: none; border-bottom: 1px dotted var(--text-tertiary); }
+
+/* EVIDENCE */
+.ev-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 14px 0 20px; }
+.ev-list li { padding-left: 16px; position: relative; font-size: 14px; line-height: 1.55; }
+.ev-list li::before { content: ''; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--red); }
+.ev-src { display: block; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-tertiary); margin-top: 3px; word-break: break-all; }
+.ev-src a { color: var(--text-tertiary); text-decoration: none; border-bottom: 1px dotted var(--text-tertiary); }
+mark { background: var(--red-soft); color: var(--red); padding: 1px 4px; border-radius: 2px; font-weight: 600; }
+mark.orange { background: var(--orange-soft); color: var(--orange); }
+
+/* DAMAGE PIPELINE */
+.pipeline { margin: 28px 0; }
+.pipe-step {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px dashed var(--border);
+}
+.pipe-step:last-child { border-bottom: none; }
+.pipe-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; font-weight: 600;
+  color: var(--red); min-width: 80px;
+  text-align: right; padding-top: 2px;
+}
+.pipe-body { font-size: 14px; color: var(--text-primary); }
+.pipe-body .src { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-tertiary); }
+
+/* CALLOUT */
+.callout-danger {
+  background: var(--bg-kidney);
+  border: 1px solid var(--red);
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin: 28px 0;
+}
+.callout-danger-title { font-weight: 800; font-size: 14px; color: var(--red); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.04em; }
+.callout-danger p { font-size: 14px; }
+
+/* ANGLE BOX */
+.angle-box {
+  background: var(--bg-card);
+  border: 2px solid var(--red);
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin: 28px 0;
+}
+.angle-title {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 19px; color: var(--red); margin-bottom: 8px;
+}
+.angle-box p { font-size: 14px; color: var(--text-secondary); margin-bottom: 8px; }
+.angle-box p:last-child { margin-bottom: 0; }
+
+/* TABLE */
+.table-wrap { overflow-x: auto; margin: 24px 0; border-radius: 8px; border: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
+thead { background: var(--bg-surface); }
+th { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--border); }
+td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+td:first-child { font-weight: 600; }
+td a { color: var(--red); text-decoration: none; font-size: 11px; }
+td a:hover { text-decoration: underline; }
+.row-highlight { background: var(--red-soft); }
+
+hr.divider { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+.footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--rule); font-size: 12px; color: var(--text-tertiary); line-height: 1.6; }
+
+/* VS BLOCK */
+.vs-block {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  margin: 28px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+@media (max-width: 560px) { .vs-block { grid-template-columns: 1fr; } }
+.vs-side { padding: 24px; }
+.vs-left { background: var(--bg-compare-left); }
+.vs-right { background: var(--bg-kidney); }
+.vs-divider {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-surface);
+  padding: 0 16px;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 20px; color: var(--text-tertiary);
+}
+@media (max-width: 560px) { .vs-divider { padding: 8px; } }
+.vs-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-tertiary); margin-bottom: 10px;
+}
+.vs-price {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 32px; line-height: 1.1; margin-bottom: 6px;
+}
+.vs-detail { font-size: 12px; color: var(--text-secondary); line-height: 1.45; }
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="hero-eyebrow">Research &mdash; The Real Cost of Masking Shoulder Pain</div>
+  <h1>Don't Sacrifice Your <em>Kidneys</em> for a Pill That Never Fixed Your Shoulder</h1>
+  <p class="hero-sub">The real numbers behind cortisone injections and daily ibuprofen use for shoulder pain &mdash; what they cost, how many people take them, and what they do to your kidneys, stomach, and heart while your shoulder stays broken.</p>
+</header>
+
+
+<!-- ============================================= -->
+<!-- SECTION: THE DAILY PILL COUNT -->
+<!-- ============================================= -->
+<section class="section">
+  <div class="sec-label">The Daily Habit</div>
+  <h2>How Many Pills Are People Actually Swallowing?</h2>
+  <p class="sec-intro">30 million people take NSAIDs daily worldwide. Here's what that looks like for a single shoulder pain patient.</p>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-num--orange" style="font-family:'DM Serif Display',serif;font-size:30px;line-height:1.1;margin-bottom:5px;">30M</div>
+      <div class="stat-lbl">people take NSAIDs daily worldwide</div>
+      <div class="stat-src"><a href="https://emedicine.medscape.com/article/816117-overview">Medscape</a></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num--orange" style="font-family:'DM Serif Display',serif;font-size:30px;line-height:1.1;margin-bottom:5px;">30B+</div>
+      <div class="stat-lbl">NSAID doses consumed per year in the US alone</div>
+      <div class="stat-src"><a href="https://www.uspharmacist.com/article/nsaids-balancing-the-risks-and-benefits">US Pharmacist</a></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num--orange" style="font-family:'DM Serif Display',serif;font-size:30px;line-height:1.1;margin-bottom:5px;">15%</div>
+      <div class="stat-lbl">of ibuprofen users exceed the maximum recommended daily dose</div>
+      <div class="stat-src"><a href="https://www.cbc.ca/news/health/ibuprofen-doses-1.4528074">CBC / Boston University</a></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num--orange" style="font-family:'DM Serif Display',serif;font-size:30px;line-height:1.1;margin-bottom:5px;">16%</div>
+      <div class="stat-lbl">of ibuprofen users take it every single day</div>
+      <div class="stat-src"><a href="https://pubmed.ncbi.nlm.nih.gov/11844633/">PubMed</a></div>
+    </div>
+  </div>
+
+  <div class="pill-counter">
+    <div class="pill-counter-title">The ibuprofen math for one shoulder pain patient</div>
+    <div class="pill-row">
+      <div class="pill-num">2&ndash;3</div>
+      <div class="pill-desc"><strong>pills per dose</strong> (400&ndash;600mg OTC, or 1 x 800mg prescription)</div>
+    </div>
+    <div class="pill-row">
+      <div class="pill-num">3x</div>
+      <div class="pill-desc"><strong>per day</strong> &mdash; every 6&ndash;8 hours, as prescribed for shoulder pain</div>
+    </div>
+    <div class="pill-row">
+      <div class="pill-num">6&ndash;9</div>
+      <div class="pill-desc"><strong>pills per day</strong> at OTC strength (200mg tablets)</div>
+    </div>
+    <div class="pill-row">
+      <div class="pill-num">730</div>
+      <div class="pill-desc"><strong>pills per year</strong> at 2/day &mdash; the minimum chronic use</div>
+    </div>
+    <div class="pill-row">
+      <div class="pill-num">1,095</div>
+      <div class="pill-desc"><strong>pills per year</strong> at 3/day &mdash; the typical mid-range</div>
+    </div>
+    <div class="pill-row">
+      <div class="pill-num">2,190</div>
+      <div class="pill-desc"><strong>pills per year</strong> at 6/day &mdash; the common OTC pattern for shoulder pain</div>
+    </div>
+  </div>
+
+  <ul class="ev-list">
+    <li>FDA recommends <mark class="orange">no more than 10 consecutive days</mark> of OTC ibuprofen. Medical guidance says max 2 weeks for shoulder pain. Reality: 40% of shoulder pain persists beyond 1 year.
+      <span class="ev-src"><a href="https://progressiveedgept.com/how-long-should-i-take-ibuprofen-for-shoulder-pain/">Progressive Edge PT</a> / <a href="https://www.ncbi.nlm.nih.gov/books/NBK554693/">NCBI</a></span>
+    </li>
+    <li>51.6 million US adults (20.9%) experience chronic pain. Of those with daily musculoskeletal pain, <strong>32% take regular pain medication</strong> (up from 20% in 1999).
+      <span class="ev-src"><a href="https://cdc.gov/mmwr/volumes/72/wr/mm7215a1.htm">CDC MMWR 2021</a></span>
+    </li>
+    <li>Among ibuprofen users in one study: <strong>55% took ibuprofen at least 3 days per week</strong>, and 16% took it every single day.
+      <span class="ev-src"><a href="https://pubmed.ncbi.nlm.nih.gov/11844633/">PubMed</a></span>
+    </li>
+  </ul>
+
+  <div class="callout-danger">
+    <div class="callout-danger-title">The 10-day limit vs reality</div>
+    <p>FDA says stop after 10 days. Shoulder pain lasts months to years. <strong>40% of cases persist beyond a year.</strong> That's not 10 days of pills. That's 730&ndash;2,190 pills &mdash; every year &mdash; for a condition the pills cannot fix.</p>
+  </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ============================================= -->
+<!-- SECTION: THE KIDNEY DAMAGE TIMELINE -->
+<!-- ============================================= -->
+<section class="section">
+  <div class="sec-label">The Kidney Timeline</div>
+  <h2>How Fast Do These Pills Damage Your Kidneys?</h2>
+  <p class="sec-intro">It doesn't take years. Kidney injury can begin in days. Here's the documented timeline from medical studies.</p>
+
+  <div class="pipeline">
+    <div class="pipe-step">
+      <div class="pipe-time">Day 3</div>
+      <div class="pipe-body">GI bleeding observed in <strong>otherwise healthy people</strong> after starting ibuprofen.
+        <div class="src"><a href="https://www.cghjournal.org/article/S1542-3565(05)00605-1/fulltext">Clinical Gastroenterology &amp; Hepatology</a></div>
+      </div>
+    </div>
+    <div class="pipe-step">
+      <div class="pipe-time">Day 8</div>
+      <div class="pipe-body">Documented case of <strong>acute kidney injury</strong> from daily NSAID use.
+        <div class="src"><a href="https://www.drugs.com/medical-answers/ibuprofen-bad-kidneys-liver-3574924/">Drugs.com</a></div>
+      </div>
+    </div>
+    <div class="pipe-step">
+      <div class="pipe-time">1&ndash;89 days</div>
+      <div class="pipe-body"><mark>18% increased risk</mark> of chronic kidney disease (CKD) from NSAID use.
+        <div class="src"><a href="https://www.ahajournals.org/doi/10.1161/HYPERTENSIONAHA.114.05105">AHA Journals</a></div>
+      </div>
+    </div>
+    <div class="pipe-step">
+      <div class="pipe-time">90+ days</div>
+      <div class="pipe-body"><mark>32% increased risk</mark> of CKD. With high blood pressure: <strong>62% increased risk</strong>.
+        <div class="src"><a href="https://www.ahajournals.org/doi/10.1161/HYPERTENSIONAHA.114.05105">AHA Journals</a></div>
+      </div>
+    </div>
+    <div class="pipe-step">
+      <div class="pipe-time">~115 days</div>
+      <div class="pipe-body">Average onset of ibuprofen-associated kidney injury (2,453 FDA reports, 2004&ndash;2021).
+        <div class="src"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8727534/">PMC</a></div>
+      </div>
+    </div>
+    <div class="pipe-step">
+      <div class="pipe-time">2&ndash;3 months</div>
+      <div class="pipe-body">Documented case of patient ending up <strong>on dialysis</strong> from NSAID use.
+        <div class="src"><a href="https://healthmatters.wphospital.org/blogs/dear-doctor-is-ibuprofen-safe-to-take-regularly/">White Plains Hospital</a></div>
+      </div>
+    </div>
+    <div class="pipe-step">
+      <div class="pipe-time">10 years</div>
+      <div class="pipe-body"><mark>46% increased CKD risk</mark> from cumulative NSAID use (Korean Senior Cohort study).
+        <div class="src"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12479701/">PMC</a></div>
+      </div>
+    </div>
+  </div>
+
+  <ul class="ev-list">
+    <li>General population NSAID users: <strong>1.73x odds</strong> of acute kidney injury. Older adults: <strong>2.51x odds</strong>.
+      <span class="ev-src"><a href="https://link.springer.com/article/10.1186/s12882-017-0673-8">BMC Nephrology</a></span>
+    </li>
+    <li><strong>1&ndash;5% of all NSAID users</strong> develop nephrotoxicity. One study found 18% renal impairment rate among 1,908 ibuprofen patients.
+      <span class="ev-src"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0002962915361243">ScienceDirect</a></span>
+    </li>
+    <li>Kidney cells have <strong>limited capacity to repair themselves</strong>. Prolonged use can cause irreversible damage.
+      <span class="ev-src"><a href="https://www.drugs.com/medical-answers/ibuprofen-bad-kidneys-liver-3574924/">Drugs.com</a></span>
+    </li>
+  </ul>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ============================================= -->
+<!-- SECTION: CORTISONE COST vs KIDNEY COST -->
+<!-- ============================================= -->
+<section class="section">
+  <div class="sec-label">The Price Tag</div>
+  <h2>Cortisone: What It Costs vs What It Costs You</h2>
+  <p class="sec-intro">A cortisone injection feels cheap. Until you count what it does to your body &mdash; and what fixing that damage costs.</p>
+
+  <h3>Cortisone Injection Prices in Australia</h3>
+
+  <div class="cost-compare">
+    <div class="cost-box cost-box--left">
+      <div class="cost-label">Out-of-Pocket (After Medicare Rebate)</div>
+      <div class="cost-price cost-price--orange">A$80&ndash;$250</div>
+      <div class="cost-detail">per injection. Most patients pay this gap after Medicare covers part of the consultation and procedure fee.</div>
+      <div class="cost-source"><a href="https://drdarrenpaterson.com.au/cortisone-injections/">Dr Darren Paterson (AU)</a></div>
+    </div>
+    <div class="cost-box cost-box--right">
+      <div class="cost-label">Private Clinic (Total Cost)</div>
+      <div class="cost-price cost-price--orange">A$150&ndash;$350</div>
+      <div class="cost-detail">including consultation + injection. Radiology clinics charge ~A$200 for the Cortisone Kit upfront.</div>
+      <div class="cost-source"><a href="https://www.sportsmedbiologic.com.au/Cortisone-Injection.html">Sports Med Biologic Melbourne</a></div>
+    </div>
+  </div>
+
+  <div class="cost-compare">
+    <div class="cost-box cost-box--left">
+      <div class="cost-label">Per Year (3&ndash;4 Injections)</div>
+      <div class="cost-price cost-price--orange">A$240&ndash;$1,000</div>
+      <div class="cost-detail">At the recommended max of 3&ndash;4 injections per year. Relief lasts 3&ndash;6 weeks each time. Then pain returns.</div>
+      <div class="cost-source"><a href="https://precioushealth.com.au/cortisone-injections-now-available-at-precious-health-radiology/">Precious Health Radiology (AU)</a></div>
+    </div>
+    <div class="cost-box cost-box--right">
+      <div class="cost-label">Over 10 Years</div>
+      <div class="cost-price cost-price--orange">A$2,400&ndash;$10,000</div>
+      <div class="cost-detail">30&ndash;40 injections total. Each one weakening tendons and cartilage. None fixing the root cause.</div>
+    </div>
+  </div>
+
+  <h3>Now Compare: What Kidney Damage Costs</h3>
+
+  <div class="vs-block">
+    <div class="vs-side vs-left">
+      <div class="vs-label">Cortisone for Shoulder (per year)</div>
+      <div class="vs-price" style="color:var(--orange);">A$240&ndash;$1,000</div>
+      <div class="vs-detail">3&ndash;4 injections per year. Relief lasts 3&ndash;6 weeks each. Then pain returns. Nothing fixed.</div>
+    </div>
+    <div class="vs-divider">vs</div>
+    <div class="vs-side vs-right">
+      <div class="vs-label">Kidney Dialysis (per year)</div>
+      <div class="vs-price" style="color:var(--red);">A$100,000+</div>
+      <div class="vs-detail">3 sessions/week. Every week. For the rest of your life. In Australia, Medicare covers most &mdash; but taxpayers pay ~A$80,000&ndash;$100,000+ per patient per year.</div>
+    </div>
+  </div>
+
+  <div class="vs-block">
+    <div class="vs-side vs-left">
+      <div class="vs-label">Ibuprofen Daily (per year)</div>
+      <div class="vs-price" style="color:var(--orange);">A$50&ndash;$200</div>
+      <div class="vs-detail">730&ndash;2,190 pills per year. Chemist Warehouse generic. Feels cheap. Feels harmless.</div>
+    </div>
+    <div class="vs-divider">vs</div>
+    <div class="vs-side vs-right">
+      <div class="vs-label">Kidney Transplant (one-time)</div>
+      <div class="vs-price" style="color:var(--red);">A$100,000+</div>
+      <div class="vs-detail">Direct hospital costs in Australia. Plus lifetime of immunosuppressant drugs (~A$10,000&ndash;$15,000/year).</div>
+    </div>
+  </div>
+
+  <h3>The Full Cost Ladder (Australian Dollars)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>What</th><th>Annual Cost (AUD)</th><th>Source</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ibuprofen daily (Chemist Warehouse)</td>
+          <td>A$50&ndash;$200/yr</td>
+          <td>OTC pricing AU</td>
+        </tr>
+        <tr>
+          <td>Cortisone 3&ndash;4x/yr (after Medicare)</td>
+          <td>A$240&ndash;$1,000/yr</td>
+          <td><a href="https://drdarrenpaterson.com.au/cortisone-injections/">Dr Paterson AU</a></td>
+        </tr>
+        <tr>
+          <td>Cortisone 3&ndash;4x/yr (private clinic)</td>
+          <td>A$450&ndash;$1,400/yr</td>
+          <td><a href="https://www.sportsmedbiologic.com.au/Cortisone-Injection.html">Sports Med Biologic</a></td>
+        </tr>
+        <tr>
+          <td>CKD Stage 1&ndash;3 treatment</td>
+          <td>A$12,000&ndash;$40,000/yr</td>
+          <td><a href="https://www.ajmc.com/view/all-cause-costs-increase-exponentially-with-increased-chronic-kidney-disease-stage-article">AJMC (converted)</a></td>
+        </tr>
+        <tr>
+          <td>CKD Stage 4&ndash;5 treatment</td>
+          <td>A$65,000&ndash;$120,000/yr</td>
+          <td><a href="https://www.ajmc.com/view/all-cause-costs-increase-exponentially-with-increased-chronic-kidney-disease-stage-article">AJMC (converted)</a></td>
+        </tr>
+        <tr class="row-highlight">
+          <td>Hemodialysis (ESRD)</td>
+          <td>A$80,000&ndash;$100,000+/yr</td>
+          <td>Australian Institute of Health &amp; Welfare estimates</td>
+        </tr>
+        <tr class="row-highlight">
+          <td>Kidney transplant</td>
+          <td>A$100,000+ (one-time) + A$10K&ndash;$15K/yr drugs</td>
+          <td>Australian Kidney Foundation estimates</td>
+        </tr>
+        <tr>
+          <td>National CKD burden (Australia)</td>
+          <td>A$4.1 billion/yr</td>
+          <td>Kidney Health Australia</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout-danger">
+    <div class="callout-danger-title">The math that should terrify you</div>
+    <p>One year of dialysis (<strong>A$100,000+</strong>) costs the same as <strong>100&ndash;400 cortisone injections</strong>. A kidney transplant plus 10 years of anti-rejection drugs (<strong>A$250,000+</strong>) costs the same as <strong>1,250&ndash;5,000 years of daily ibuprofen</strong> from the chemist. You save A$15/month on pills. You risk A$250,000 in kidney damage. For a shoulder the pills never fixed.</p>
+  </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ============================================= -->
+<!-- SECTION: CORTISONE KIDNEY DAMAGE SPECIFICS -->
+<!-- ============================================= -->
+<section class="section">
+  <div class="sec-label">Cortisone &amp; Your Kidneys</div>
+  <h2>What Cortisone Specifically Does to Your Kidneys</h2>
+  <p class="sec-intro">Cortisone doesn't just fail to fix your shoulder. It actively stresses the organs you need to stay alive.</p>
+
+  <ul class="ev-list">
+    <li><strong>Fluid retention and increased blood pressure</strong> &mdash; both directly stress the kidneys. Elevated blood pressure is the #2 cause of kidney disease.
+      <span class="ev-src"><a href="https://statcarewalkin.com/info/are-cortisone-shots-bad-for-your-kidneys.html">StatCare</a></span>
+    </li>
+    <li><strong>Blood sugar spikes</strong> &mdash; 78% glucose increase on day 1 (215% for Type 1 diabetics). Sustained high blood sugar damages kidney blood vessels.
+      <span class="ev-src"><a href="https://www.healio.com/news/orthopedics/20120331/corticosteroid-injections-increase-glucose-levels-in-diabetics">Healio / AAFP</a></span>
+    </li>
+    <li><strong>Nephrocalcinosis and kidney stones</strong> &mdash; documented renal complications from corticosteroid use.
+      <span class="ev-src"><a href="https://jointrehab.com/systemic-effects-of-cortisone-injections-including-cartilage-damage/">Joint Rehab</a></span>
+    </li>
+    <li>Risk <strong>elevated for patients with pre-existing CKD, diabetes, or heart conditions</strong> &mdash; exactly the populations most likely to have shoulder problems.
+      <span class="ev-src"><a href="https://medxdrg.com/do-cortisone-shots-affect-the-kidneys-understanding-the-risks-and-effects">MedXDRG</a></span>
+    </li>
+  </ul>
+
+  <h3>Plus: Everything Else Cortisone Destroys</h3>
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-num">2x</div>
+      <div class="stat-lbl">greater odds of cartilage worsening (meta-analysis, 1,437 patients)</div>
+      <div class="stat-src"><a href="https://pubmed.ncbi.nlm.nih.gov/38455990/">PubMed 2023</a></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">2.5</div>
+      <div class="stat-lbl">average injections before tendon spontaneous rupture</div>
+      <div class="stat-src"><a href="https://pubmed.ncbi.nlm.nih.gov/27741145/">PubMed</a></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">2&ndash;8 wk</div>
+      <div class="stat-lbl">of immune suppression after a single injection</div>
+      <div class="stat-src"><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/msc.1603">Wiley</a></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">2x</div>
+      <div class="stat-lbl">adverse outcomes if cortisone given within 6 months of surgery</div>
+      <div class="stat-src"><a href="https://ajronline.org/doi/10.2214/AJR.23.30458">AJR</a></div>
+    </div>
+  </div>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ============================================= -->
+<!-- SECTION: IBUPROFEN BODY COUNT -->
+<!-- ============================================= -->
+<section class="section">
+  <div class="sec-label">The Ibuprofen Body Count</div>
+  <h2>The Death Toll Your GP Doesn't Mention</h2>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-num">16,500+</div>
+      <div class="stat-lbl">deaths per year in the US from NSAID complications</div>
+      <div class="stat-src"><a href="https://www.drugpolicyfacts.org/node/162">Drug Policy Facts / AGA</a></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">103K</div>
+      <div class="stat-lbl">hospitalizations per year from NSAIDs in the US</div>
+      <div class="stat-src"><a href="https://www.drugpolicyfacts.org/node/162">Drug Policy Facts / AGA</a></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">32K+</div>
+      <div class="stat-lbl">GI bleeding hospitalizations per year from NSAIDs</div>
+      <div class="stat-src"><a href="https://www.aafp.org/pubs/afp/issues/2001/0215/p637.html">AAFP</a></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">0 days</div>
+      <div class="stat-lbl">"no period of use shown to be without risk" &mdash; FDA</div>
+      <div class="stat-src"><a href="https://www.drugs.com/fda-consumer/fda-strengthens-warning-of-heart-attack-and-stroke-risk-for-non-steroidal-anti-inflammatory-drugs-346.html">FDA / Drugs.com</a></div>
+    </div>
+  </div>
+
+  <ul class="ev-list">
+    <li>More people die from NSAID complications than from <strong>AIDS and cervical cancer</strong> in the US.
+      <span class="ev-src"><a href="https://www.drugpolicyfacts.org/node/162">Drug Policy Facts</a></span>
+    </li>
+    <li>Heart attack and stroke risk begins <mark>in the first few weeks</mark> of NSAID use. Risk increase: 10&ndash;50%+.
+      <span class="ev-src"><a href="https://www.health.harvard.edu/blog/fda-strengthens-warning-that-nsaids-increase-heart-attack-and-stroke-risk-201507138138">Harvard Health</a></span>
+    </li>
+    <li>Cleveland Clinic: <strong>"If you find yourself reaching for ibuprofen every day, that's a sign to step back and look at what's really going on."</strong>
+      <span class="ev-src"><a href="https://health.clevelandclinic.org/is-it-bad-to-take-ibuprofen-every-day">Cleveland Clinic</a></span>
+    </li>
+    <li>Ibuprofen may actually <strong>slow shoulder healing</strong> &mdash; decreased capsulolabral healing documented after glenohumeral dislocation.
+      <span class="ev-src">Weill Cornell Research</span>
+    </li>
+  </ul>
+</section>
+
+
+<hr class="divider">
+
+
+<!-- ============================================= -->
+<!-- SECTION: AD ANGLES -->
+<!-- ============================================= -->
+<section class="section">
+  <div class="sec-label">Ad Angles</div>
+  <h2>Hooks Built From These Numbers</h2>
+
+  <div class="angle-box">
+    <div class="angle-title">"Don't sacrifice your kidneys for cortisone treating your shoulder pain"</div>
+    <p><strong>Open with:</strong> A cortisone injection costs A$80&ndash;$250. Kidney dialysis costs A$100,000+/year. A kidney transplant costs A$100,000+ plus A$10K&ndash;$15K/year in drugs for life.</p>
+    <p><strong>The bridge:</strong> Cortisone gives you 3&ndash;6 weeks of relief. Then pain returns. Meanwhile: 2x cartilage worsening, tendon rupture after avg 2.5 injections, 78% blood sugar spike (stress on kidneys), 2&ndash;8 weeks of immune suppression.</p>
+    <p><strong>The close:</strong> You're paying A$150 to borrow 6 weeks from your kidneys, your tendons, and your cartilage. The interest rate is A$250,000+.</p>
+  </div>
+
+  <div class="angle-box">
+    <div class="angle-title">"730 pills a year and your shoulder is still broken"</div>
+    <p><strong>Open with:</strong> 2 pills a day. Harmless, right? That's 730 pills a year. 2,190 at the common prescription dose. TGA guidelines say short-term only. Your shoulder pain lasts years.</p>
+    <p><strong>The bridge:</strong> Day 3: GI bleeding starts. Day 115: kidney injury onset. 90+ days: 32% increased CKD risk. And the pills never fixed the tear &mdash; they may actually slow healing.</p>
+    <p><strong>The close:</strong> You spent A$200 on Nurofen to avoid fixing the real problem. The kidney bill is A$100,000+/year. The shoulder is still torn.</p>
+  </div>
+
+  <div class="angle-box">
+    <div class="angle-title">"A$200/year in pills. A$250,000+ in kidney damage. $0 spent fixing the actual problem."</div>
+    <p><strong>The visual:</strong> Show the cost ladder: Nurofen/Ibuprofen (A$200/yr) &rarr; Cortisone (A$1,000/yr) &rarr; CKD Stage 1&ndash;3 (A$40,000/yr) &rarr; CKD Stage 4&ndash;5 (A$120,000/yr) &rarr; Dialysis (A$100,000+/yr) &rarr; Transplant + drugs (A$250,000+).</p>
+    <p><strong>The line:</strong> Every rung costs more. None of them fix the shoulder.</p>
+  </div>
+
+  <div class="angle-box">
+    <div class="angle-title">"16,500 people die every year from the pills your GP calls 'safe'"</div>
+    <p><strong>The shock:</strong> 16,500 deaths (US data &mdash; Australia proportional at ~1,200+). 103,000 hospitalizations. More than AIDS and cervical cancer. From over-the-counter pills you grab at Chemist Warehouse. The TGA and FDA both warn there's "no period of use shown to be without risk."</p>
+  </div>
+
+  <div class="angle-box">
+    <div class="angle-title">"Your shoulder costs A$1,000/year to treat wrong. Your kidneys cost A$100,000/year to save."</div>
+    <p><strong>Side by side:</strong> Cortisone (A$1,000/yr) gives 3&ndash;6 weeks of relief, 2x cartilage damage, tendon rupture risk. Dialysis (A$100,000+/yr) is 3 sessions/week, every week, for the rest of your life. One leads to the other. Neither fixes the shoulder.</p>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <p>Research compiled August 2026. All statistics sourced from peer-reviewed journals, FDA data, government health agencies, and healthcare cost databases. Sources linked inline.</p>
+  <p style="margin-top:6px;">Key sources: Cochrane Reviews, FDA adverse event reports (2,453 kidney injury cases), CDC MMWR 2021, AHA Journals, MedPAC 2025, Milliman 2025, PubMed, AJMC, PMC/NIH.</p>
+</footer>
+
+</div>
