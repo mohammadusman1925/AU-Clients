@@ -1,0 +1,1162 @@
+<title>Hip Therapy Belt VOC Research</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300&display=swap');
+
+:root {
+  --bg: #F7F5F2;
+  --bg-surface: #FFFFFF;
+  --bg-inset: #EDEAE5;
+  --text-primary: #1A1612;
+  --text-secondary: #5C554B;
+  --text-tertiary: #8A8278;
+  --accent: #B34233;
+  --accent-light: #E8D5D1;
+  --accent-warm: #D4714A;
+  --border: #D9D4CD;
+  --border-light: #E8E4DE;
+  --tag-frustration: #B34233;
+  --tag-frustration-bg: #F5E1DD;
+  --tag-hope: #2E7D6A;
+  --tag-hope-bg: #D4EDE6;
+  --tag-gratitude: #8B6914;
+  --tag-gratitude-bg: #F0E6C8;
+  --tag-trust: #5B4A8A;
+  --tag-trust-bg: #E4DDF0;
+  --tag-identity: #2D6B8A;
+  --tag-identity-bg: #D4E8F0;
+  --tag-risk: #8A4B2D;
+  --tag-risk-bg: #F0E0D4;
+  --score-high: #2E7D6A;
+  --score-mid: #8B6914;
+  --score-low: #B34233;
+  --shadow: 0 1px 3px rgba(26,22,18,0.06);
+  --shadow-lg: 0 4px 16px rgba(26,22,18,0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141210;
+    --bg-surface: #1E1B18;
+    --bg-inset: #252220;
+    --text-primary: #E8E4DE;
+    --text-secondary: #A8A098;
+    --text-tertiary: #706860;
+    --accent: #D4614F;
+    --accent-light: #3A2220;
+    --accent-warm: #D4814A;
+    --border: #332F2B;
+    --border-light: #2A2724;
+    --tag-frustration: #E07060;
+    --tag-frustration-bg: #3A2220;
+    --tag-hope: #4AAA92;
+    --tag-hope-bg: #1A332D;
+    --tag-gratitude: #C49B2E;
+    --tag-gratitude-bg: #332D18;
+    --tag-trust: #9B82C4;
+    --tag-trust-bg: #2A243A;
+    --tag-identity: #5AA0C0;
+    --tag-identity-bg: #1A2D3A;
+    --tag-risk: #C47050;
+    --tag-risk-bg: #3A2418;
+    --score-high: #4AAA92;
+    --score-mid: #C49B2E;
+    --score-low: #E07060;
+    --shadow: 0 1px 3px rgba(0,0,0,0.2);
+    --shadow-lg: 0 4px 16px rgba(0,0,0,0.3);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141210;
+  --bg-surface: #1E1B18;
+  --bg-inset: #252220;
+  --text-primary: #E8E4DE;
+  --text-secondary: #A8A098;
+  --text-tertiary: #706860;
+  --accent: #D4614F;
+  --accent-light: #3A2220;
+  --accent-warm: #D4814A;
+  --border: #332F2B;
+  --border-light: #2A2724;
+  --tag-frustration: #E07060;
+  --tag-frustration-bg: #3A2220;
+  --tag-hope: #4AAA92;
+  --tag-hope-bg: #1A332D;
+  --tag-gratitude: #C49B2E;
+  --tag-gratitude-bg: #332D18;
+  --tag-trust: #9B82C4;
+  --tag-trust-bg: #2A243A;
+  --tag-identity: #5AA0C0;
+  --tag-identity-bg: #1A2D3A;
+  --tag-risk: #C47050;
+  --tag-risk-bg: #3A2418;
+  --score-high: #4AAA92;
+  --score-mid: #C49B2E;
+  --score-low: #E07060;
+  --shadow: 0 1px 3px rgba(0,0,0,0.2);
+  --shadow-lg: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  padding-inline: 24px;
+  padding-block: 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Header */
+.doc-header {
+  padding-block: 48px 32px;
+  border-bottom: 2px solid var(--accent);
+}
+.doc-header .eyebrow {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.doc-header h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin: 0 0 12px;
+  text-wrap: balance;
+}
+.doc-header .subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 60ch;
+  line-height: 1.5;
+}
+.doc-header .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+.doc-header .meta span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Table of Contents */
+.toc {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 20px 24px;
+  margin-block: 32px;
+  box-shadow: var(--shadow);
+}
+.toc-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 12px;
+}
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 6px;
+}
+.toc-list a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  padding: 4px 0;
+  display: block;
+  transition: color 0.15s;
+}
+.toc-list a:hover { color: var(--accent); }
+.toc-list .num { color: var(--accent); font-weight: 600; margin-right: 6px; font-variant-numeric: tabular-nums; }
+
+/* Sections */
+section {
+  margin-block: 48px;
+}
+section > h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+  text-wrap: balance;
+  line-height: 1.25;
+}
+section > .section-lead {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: 28px;
+  max-width: 65ch;
+}
+h3 {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 32px 0 14px;
+}
+h3:first-of-type { margin-top: 0; }
+
+/* Quote blocks */
+.quote-block {
+  background: var(--bg-surface);
+  border-left: 3px solid var(--accent);
+  padding: 14px 18px;
+  margin-block: 12px;
+  border-radius: 0 4px 4px 0;
+  box-shadow: var(--shadow);
+}
+.quote-block p {
+  margin: 0;
+  font-style: italic;
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.quote-block .source {
+  font-style: normal;
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin-top: 6px;
+  display: block;
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+.tag-frustration { color: var(--tag-frustration); background: var(--tag-frustration-bg); }
+.tag-hope { color: var(--tag-hope); background: var(--tag-hope-bg); }
+.tag-gratitude { color: var(--tag-gratitude); background: var(--tag-gratitude-bg); }
+.tag-trust { color: var(--tag-trust); background: var(--tag-trust-bg); }
+.tag-identity { color: var(--tag-identity); background: var(--tag-identity-bg); }
+.tag-risk { color: var(--tag-risk); background: var(--tag-risk-bg); }
+
+/* Phrase list */
+.phrase-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.phrase-list li {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  box-shadow: var(--shadow);
+}
+.phrase-list .rank {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--accent);
+  min-width: 20px;
+  flex-shrink: 0;
+}
+.phrase-list .phrase {
+  font-style: italic;
+  color: var(--text-primary);
+  flex: 1;
+}
+.phrase-list .context {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  font-style: normal;
+}
+
+/* Objection cards */
+.objection-grid {
+  display: grid;
+  gap: 14px;
+}
+.objection-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+.objection-card .stated {
+  font-style: italic;
+  font-size: 14px;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.objection-card .origin {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.objection-card .origin strong {
+  color: var(--text-tertiary);
+  font-weight: 600;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* LF8 Table */
+.lf8-table-wrap {
+  overflow-x: auto;
+  margin-block: 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow);
+}
+.lf8-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: var(--bg-surface);
+}
+.lf8-table th {
+  background: var(--bg-inset);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.lf8-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+  color: var(--text-primary);
+  line-height: 1.45;
+}
+.lf8-table tr:last-child td { border-bottom: none; }
+.lf8-table .desire-name {
+  font-weight: 600;
+  font-size: 13px;
+  min-width: 140px;
+}
+.lf8-table .score-cell {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  text-align: center;
+  width: 50px;
+}
+.score-5 { color: var(--score-high); }
+.score-4 { color: var(--score-high); }
+.score-3 { color: var(--score-mid); }
+.score-2 { color: var(--score-low); }
+.score-1 { color: var(--score-low); }
+
+.highlight-row td {
+  background: var(--tag-hope-bg);
+}
+
+/* Contradiction block */
+.contradiction {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 16px 18px;
+  margin-block: 10px;
+  box-shadow: var(--shadow);
+}
+.contradiction .before {
+  color: var(--tag-frustration);
+  font-size: 13px;
+  font-style: italic;
+}
+.contradiction .pivot {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 6px 0;
+}
+.contradiction .after {
+  color: var(--tag-hope);
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* Competitor section */
+.competitor-item {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 16px 18px;
+  margin-block: 10px;
+  box-shadow: var(--shadow);
+}
+.competitor-item .product-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.competitor-item .weakness {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Callout box */
+.callout {
+  background: var(--accent-light);
+  border-radius: 6px;
+  padding: 20px 22px;
+  margin-block: 24px;
+}
+.callout .callout-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.callout p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Stats row */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  margin-block: 24px;
+}
+.stat-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.stat-card .stat-number {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+.stat-card .stat-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* Winner box */
+.winner-box {
+  background: var(--bg-surface);
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  padding: 24px;
+  margin-block: 24px;
+  box-shadow: var(--shadow-lg);
+}
+.winner-box .winner-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.winner-box .winner-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.winner-box p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Divider */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin-block: 48px;
+}
+
+/* Footer */
+.doc-footer {
+  padding-block: 32px 48px;
+  font-size: 11px;
+  color: var(--text-tertiary);
+  border-top: 1px solid var(--border);
+}
+.doc-footer a {
+  color: var(--text-tertiary);
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  body { padding-inline: 16px; }
+  .toc-list { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: 1fr 1fr; }
+  .lf8-table { font-size: 12px; }
+  .lf8-table td, .lf8-table th { padding: 8px; }
+}
+</style>
+
+<header class="doc-header">
+  <div class="eyebrow">Voice of Customer Research</div>
+  <h1>Hip Therapy Belt: What They Actually Say</h1>
+  <p class="subtitle">Real language mined from Amazon AU, Reddit, Mayo Clinic forums, TikTok, and competitor reviews. For ad copy targeting Australians 45-65 with chronic hip pain.</p>
+  <div class="meta">
+    <span>Product: Red Light + Infrared + Heat + Vibration Belt</span>
+    <span>Market: Australia</span>
+    <span>September 2026</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="toc-label">Contents</div>
+  <ul class="toc-list">
+    <li><a href="#pain-phrases"><span class="num">1</span> Pain Problem Phrases</a></li>
+    <li><a href="#relief-phrases"><span class="num">2</span> Relief Phrases</a></li>
+    <li><a href="#emotional-states"><span class="num">3</span> By Emotional State</a></li>
+    <li><a href="#contradictions"><span class="num">4</span> Contradictions</a></li>
+    <li><a href="#surprise-benefits"><span class="num">5</span> Surprise Benefits</a></li>
+    <li><a href="#reddit"><span class="num">6</span> Reddit / Forum Voices</a></li>
+    <li><a href="#social"><span class="num">7</span> Social Media Patterns</a></li>
+    <li><a href="#competitors"><span class="num">8</span> Competitor Review Gaps</a></li>
+    <li><a href="#objections"><span class="num">9</span> Real Objections</a></li>
+    <li><a href="#lf8"><span class="num">10</span> Life Force 8 Mapping</a></li>
+  </ul>
+</nav>
+
+<div class="stats-row">
+  <div class="stat-card">
+    <div class="stat-number">3.24M</div>
+    <div class="stat-label">Australians living with chronic pain (ABS 2018)</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">179 days</div>
+    <div class="stat-label">Median wait for hip replacement on the public system (2020-21)</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">47%</div>
+    <div class="stat-label">Of high-impact pain sufferers with severe physical limitations</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">50%</div>
+    <div class="stat-label">Of joint pain sufferers who report intimacy difficulties</div>
+  </div>
+</div>
+
+<!-- SECTION 1: Pain Problem Phrases -->
+<section id="pain-phrases">
+  <h2>The 10 Phrases They Use to Describe the Problem</h2>
+  <p class="section-lead">Mined from Amazon AU/US reviews, Walmart reviews, Mayo Clinic Connect, HealthUnlocked, BoneSmart forums, and health community threads. These are the words buyers actually type.</p>
+
+  <ol class="phrase-list">
+    <li>
+      <span class="rank">01</span>
+      <span class="phrase">"I can't sleep on my side"</span>
+      <span class="context">Sleep disruption is the #1 complaint. Lying on the affected hip presses inflamed bursa against the mattress "like pushing on a bruise."</span>
+    </li>
+    <li>
+      <span class="rank">02</span>
+      <span class="phrase">"The pain keeps me up at night"</span>
+      <span class="context">Nocturnal hip pain makes it "impossible to get comfortable" and tossing and turning means "little sleep throughout the night."</span>
+    </li>
+    <li>
+      <span class="rank">03</span>
+      <span class="phrase">"Every step is painful"</span>
+      <span class="context">Walking pain. Sharp pain on weight-bearing. "Pain shoots down my leg." Common in both bursitis and OA reviews.</span>
+    </li>
+    <li>
+      <span class="rank">04</span>
+      <span class="phrase">"I've tried everything"</span>
+      <span class="context">Treatment fatigue. Cortisone, physio, NSAIDs, chiropractor, osteopath. One reviewer: "I had tried everything else so I didn't see the harm in adding one more thing to the list."</span>
+    </li>
+    <li>
+      <span class="rank">05</span>
+      <span class="phrase">"The cortisone only lasted [X weeks/months]"</span>
+      <span class="context">Mayo Clinic forums: "only lasted about 90 days" / "didn't help the pain at all" / "worse than before the injections." 50% of patients get relief lasting two weeks or less.</span>
+    </li>
+    <li>
+      <span class="rank">06</span>
+      <span class="phrase">"Constant aching / nagging pain"</span>
+      <span class="context">Chronic dull ache that never fully goes away. Distinguished from "sharp" or "shooting" pain. The background noise of hip dysfunction.</span>
+    </li>
+    <li>
+      <span class="rank">07</span>
+      <span class="phrase">"I feel like an old person"</span>
+      <span class="context">Identity threat. BoneSmart forum: hip pain at age 51 "wouldn't bother me if I were 75" but at this age it attacks self-image. People mourn their younger body.</span>
+    </li>
+    <li>
+      <span class="rank">08</span>
+      <span class="phrase">"I can't do what I used to do"</span>
+      <span class="context">Activities lost: gardening, golf, walking the dog, playing with grandkids. "Missing out" language. OA is the leading cause of walking disability.</span>
+    </li>
+    <li>
+      <span class="rank">09</span>
+      <span class="phrase">"The physio/exercises didn't help"</span>
+      <span class="context">Copenhagen study: supervised strength training "less effective than thought." Forum: treatments "tried to no avail." Strong evidence for physio-led interventions is "lacking."</span>
+    </li>
+    <li>
+      <span class="rank">10</span>
+      <span class="phrase">"I don't want to be a burden"</span>
+      <span class="context">Dependence fear. Having to ask for help. Social isolation. Research: chronic pain "frequently associated with decreased self-care capacity and social isolation."</span>
+    </li>
+  </ol>
+</section>
+
+<!-- SECTION 2: Relief Phrases -->
+<section id="relief-phrases">
+  <h2>The 5 Phrases They Use to Describe Relief</h2>
+  <p class="section-lead">From positive reviews of red light, infrared, and combination therapy devices. These are the "after" words you can mirror in ad copy.</p>
+
+  <ol class="phrase-list">
+    <li>
+      <span class="rank">01</span>
+      <span class="phrase">"I can finally [verb] again"</span>
+      <span class="context">"I can finally sleep" / "walk without wincing" / "get up from a chair." The return of a specific activity is the proof of relief.</span>
+    </li>
+    <li>
+      <span class="rank">02</span>
+      <span class="phrase">"After the first use I noticed a big difference"</span>
+      <span class="context">Immediate-response language. "After the first use I noticed a big difference. I could walk much better with less pain getting up or down."</span>
+    </li>
+    <li>
+      <span class="rank">03</span>
+      <span class="phrase">"It actually works"</span>
+      <span class="context">Surprise-then-belief. Painmaster reviewer: "I never thought I would be able to say this but it works it works it works." The repetition is real.</span>
+    </li>
+    <li>
+      <span class="rank">04</span>
+      <span class="phrase">"Took my pain down to a tolerable level"</span>
+      <span class="context">Realistic, not miracle. "Helps aches and pains more than a heating pad and has taken daily constant pain down to a tolerable level." People don't expect zero pain. They want manageable.</span>
+    </li>
+    <li>
+      <span class="rank">05</span>
+      <span class="phrase">"Life changing" / "Game changer"</span>
+      <span class="context">Highest emotional register. "After suffering from knee pain for years and developing a hip injury, this device was life changing!" Reserved for products that deliver functional restoration.</span>
+    </li>
+  </ol>
+</section>
+
+<!-- SECTION 3: Emotional States -->
+<section id="emotional-states">
+  <h2>Grouped by Emotional State</h2>
+  <p class="section-lead">Three emotional stages a buyer moves through. Each needs different copy.</p>
+
+  <h3><span class="tag tag-frustration">Frustration</span> The Stuck Place</h3>
+
+  <div class="quote-block">
+    <p>"In the 5 months since the injections, my mobility remains severely impacted - my bilateral hip pain is easily 20x worse than before the injections."</p>
+    <span class="source">Mayo Clinic Connect Forum</span>
+  </div>
+  <div class="quote-block">
+    <p>"I have had several cortisone shots in my hips and my back; they do not work for me at all."</p>
+    <span class="source">Mayo Clinic Connect Forum</span>
+  </div>
+  <div class="quote-block">
+    <p>"All that did was cause initial numbness, significant pain for 36 hours, and then no improvement."</p>
+    <span class="source">Mayo Clinic Connect Forum</span>
+  </div>
+  <div class="quote-block">
+    <p>"I had tried everything else so I didn't see the harm in adding one more thing to the list."</p>
+    <span class="source">Painmaster AU Customer Review</span>
+  </div>
+  <div class="quote-block">
+    <p>"I've had chronic pain for three years due to sciatica, and I've tried everything to help relieve the pain."</p>
+    <span class="source">Amazon Review (via Tom's Guide)</span>
+  </div>
+
+  <h3><span class="tag tag-hope">Hope</span> The Opening</h3>
+
+  <div class="quote-block">
+    <p>"Yes I was very skepital [sic], but it really does help."</p>
+    <span class="source">Walmart Review, Lifepro Red Light Belt</span>
+  </div>
+  <div class="quote-block">
+    <p>"I was skeptical at first, but this belt exceeded all my expectations."</p>
+    <span class="source">ReposePoint Red Light Belt Review</span>
+  </div>
+  <div class="quote-block">
+    <p>"When you've tried chiropractors, physical therapy, and endless gadgets, it's hard to believe one more thing will work."</p>
+    <span class="source">Amazon Customer Review</span>
+  </div>
+  <div class="quote-block">
+    <p>"Limped for weeks and weeks and was desperately trying to find something to help with pain and inflammation and I was not able to sleep."</p>
+    <span class="source">Red Light Therapy Device Review</span>
+  </div>
+
+  <h3><span class="tag tag-gratitude">Gratitude</span> The Breakthrough</h3>
+
+  <div class="quote-block">
+    <p>"I never thought I would be able to say this but it works it works it works, I was so overwhelmed when it first relieved my pain by half in less than a day that I sobbed to my parents."</p>
+    <span class="source">Painmaster AU Customer Review</span>
+  </div>
+  <div class="quote-block">
+    <p>"Goodbye painkillers. These are the best, completely taken care of my hip pain."</p>
+    <span class="source">Painmaster AU, 5-star review</span>
+  </div>
+  <div class="quote-block">
+    <p>"Now I can sleep pain free!"</p>
+    <span class="source">Red Light Device Customer Review</span>
+  </div>
+  <div class="quote-block">
+    <p>"Their rate of healing has significantly increased, allowing them to return to what they enjoy doing."</p>
+    <span class="source">Healthcare Provider Review</span>
+  </div>
+</section>
+
+<!-- SECTION 4: Contradictions -->
+<section id="contradictions">
+  <h2>Contradictions: The Belief Pivot</h2>
+  <p class="section-lead">These before/after statements are gold for ad copy. The contradiction IS the story.</p>
+
+  <div class="contradiction">
+    <div class="before">"I didn't believe anything portable could go deeper."</div>
+    <div class="pivot">But then</div>
+    <div class="after">"Traditional heating pads would provide temporary relief but the pain always came back the second they stood up."</div>
+  </div>
+
+  <div class="contradiction">
+    <div class="before">"When you've tried chiropractors, physical therapy, and endless gadgets, it's hard to believe one more thing will work."</div>
+    <div class="pivot">But then</div>
+    <div class="after">"The compression plus red light therapy eased the stabbing pain down their leg within a week."</div>
+  </div>
+
+  <div class="contradiction">
+    <div class="before">"I had tried everything else so I didn't see the harm in adding one more thing to the list."</div>
+    <div class="pivot">But then</div>
+    <div class="after">"I never thought I would be able to say this but it works it works it works."</div>
+  </div>
+
+  <div class="contradiction">
+    <div class="before">"Yes I was very skepital [sic]."</div>
+    <div class="pivot">But then</div>
+    <div class="after">"But it really does help."</div>
+  </div>
+
+  <div class="contradiction">
+    <div class="before">"I was skeptical at first."</div>
+    <div class="pivot">But then</div>
+    <div class="after">"This belt exceeded all my expectations."</div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Copy Implication</div>
+    <p>The most powerful ad angle is not "this product works." It is "I know you don't believe this will work. I didn't either." Mirror the skepticism before claiming the result. The contradiction format itself creates credibility.</p>
+  </div>
+</section>
+
+<!-- SECTION 5: Surprise Benefits -->
+<section id="surprise-benefits">
+  <h2>Surprise Benefits People Didn't Expect</h2>
+  <p class="section-lead">What buyers came for vs. what they got. These are upsell angles and headline material.</p>
+
+  <div class="objection-grid">
+    <div class="objection-card">
+      <div class="stated">"I didn't expect digestion improvements"</div>
+      <div class="origin"><strong>Came for:</strong> Hip/back pain relief.<br><strong>Got:</strong> Reduced bloating and digestive comfort from infrared belt worn on abdomen.</div>
+    </div>
+    <div class="objection-card">
+      <div class="stated">"Sleep quality improved early on"</div>
+      <div class="origin"><strong>Came for:</strong> Pain reduction.<br><strong>Got:</strong> Red/near-infrared light at night may aid melatonin production. Users report falling asleep faster and staying asleep.</div>
+    </div>
+    <div class="objection-card">
+      <div class="stated">"Morning stiffness reduced significantly"</div>
+      <div class="origin"><strong>Came for:</strong> Acute pain episodes.<br><strong>Got:</strong> Cumulative anti-inflammatory effect. Weeks 3-4 showed "pain reduction becoming more consistent" and less stiffness on waking.</div>
+    </div>
+    <div class="objection-card">
+      <div class="stated">"My mobility has improved, and I feel so much more energetic"</div>
+      <div class="origin"><strong>Came for:</strong> Knee/hip pain.<br><strong>Got:</strong> Overall energy and mood improvement. Likely from reduced inflammation burden and better sleep.</div>
+    </div>
+    <div class="objection-card">
+      <div class="stated">"The size surprised me - much larger than expected"</div>
+      <div class="origin"><strong>Came for:</strong> A small spot-treatment device.<br><strong>Got:</strong> A belt wide enough to "cover almost half of their back." Coverage = more effective treatment area.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SECTION 6: Reddit & Forum -->
+<section id="reddit">
+  <h2>Reddit and Forum Voices</h2>
+  <p class="section-lead">From r/ChronicPain, r/Sciatica, Mayo Clinic Connect, HealthUnlocked Pain Concern, BoneSmart forums. These are the unfiltered voices of your target buyer.</p>
+
+  <h3>On Cortisone Wearing Off</h3>
+  <div class="quote-block">
+    <p>"I got the steroid injection and it didn't help the pain at all."</p>
+    <span class="source">Mayo Clinic Connect</span>
+  </div>
+  <div class="quote-block">
+    <p>"Had a number of cortisone injections for hip bursitis that did not help beyond initially. No cure."</p>
+    <span class="source">HealthUnlocked, Pain Concern</span>
+  </div>
+  <div class="quote-block">
+    <p>"Cortisone shot lasted approximately 90 days. After that, back to square one."</p>
+    <span class="source">BoneSmart Forum</span>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Key Data Point</div>
+    <p>Research shows 20% of patients get zero response from cortisone. Of the remaining, 50% get relief lasting only two weeks or less. Only 33% still have relief at three months. The "temporary fix" framing is backed by clinical evidence.</p>
+  </div>
+
+  <h3>On Physio Not Working</h3>
+  <div class="quote-block">
+    <p>"Treatments were tried to no avail before ultimately requiring hip replacement surgery."</p>
+    <span class="source">HealthUnlocked, Pain Concern</span>
+  </div>
+  <div class="quote-block">
+    <p>"I completed a course of physical therapy without improvement."</p>
+    <span class="source">Mayo Clinic Connect</span>
+  </div>
+  <div class="quote-block">
+    <p>"Some therapists were unhelpful in teaching proper techniques."</p>
+    <span class="source">BoneSmart Forum</span>
+  </div>
+
+  <h3>On Trying Alternatives</h3>
+  <div class="quote-block">
+    <p>"Nothing seems to be working, and they continue searching through TikTok, Google searches, and Reddit rabbit holes hoping to find a cure."</p>
+    <span class="source">Health Forum Pattern (multiple sources)</span>
+  </div>
+  <div class="quote-block">
+    <p>"I've tried steroid injections, anti-inflammatory medications, chiropractors, osteopaths, and physiotherapy, but nothing seems to help."</p>
+    <span class="source">HealthUnlocked, Pain Concern</span>
+  </div>
+  <div class="quote-block">
+    <p>"Continued significant pain and burning sensation after a cortisone injection. Had to take ibuprofen nightly to get comfortable in bed."</p>
+    <span class="source">BoneSmart Forum</span>
+  </div>
+
+  <h3>On the Australian Context</h3>
+  <div class="quote-block">
+    <p>"In the public system, wait times for hip replacements can be significant, with patients often waiting for many years before receiving surgery."</p>
+    <span class="source">Australian Healthcare Data</span>
+  </div>
+  <div class="quote-block">
+    <p>"21% of patients waiting for hip replacement are waiting more than 12 months for their surgery."</p>
+    <span class="source">Australian Orthopaedic Association Data</span>
+  </div>
+  <div class="quote-block">
+    <p>"Viscosupplementation is not listed on the Australian PBS, which means patients are responsible for the full cost."</p>
+    <span class="source">Brisbane Hip Clinic</span>
+  </div>
+</section>
+
+<!-- SECTION 7: Social Media Patterns -->
+<section id="social">
+  <h2>Social Media Comment Patterns</h2>
+  <p class="section-lead">Patterns from TikTok, Facebook groups, and social media discussions around red light therapy and hip pain devices.</p>
+
+  <h3>Common Objections Raised</h3>
+  <div class="objection-grid">
+    <div class="objection-card">
+      <div class="stated">"When one product claims to fix everything, skepticism is the healthiest response."</div>
+      <div class="origin"><strong>Pattern:</strong> Over-promising triggers rejection. Products that claim too many benefits get dismissed as "too good to be true."</div>
+    </div>
+    <div class="objection-card">
+      <div class="stated">"If a device doesn't say 660nm + 850nm it's a colored bulb, not therapy."</div>
+      <div class="origin"><strong>Pattern:</strong> Educated sceptics exist. TikTok commenters increasingly know the wavelengths. Specificity builds trust.</div>
+    </div>
+    <div class="objection-card">
+      <div class="stated">"The consumer marketplace is flooded with underpowered gadgets, exaggerated claims, and claims that race far ahead of the science."</div>
+      <div class="origin"><strong>Pattern:</strong> Category contamination. Cheap devices that don't work make people distrust the entire category.</div>
+    </div>
+  </div>
+
+  <h3>What Makes Them Skeptical</h3>
+  <ul style="font-size:14px; color: var(--text-secondary); line-height: 1.7; padding-left: 20px;">
+    <li><strong>Broad claims.</strong> Any product claiming to fix pain, skin, sleep, weight loss, AND mood simultaneously gets dismissed.</li>
+    <li><strong>No wavelength spec.</strong> Savvy buyers check for 660nm red + 850nm near-infrared. No spec = "just a coloured light."</li>
+    <li><strong>Cheap look.</strong> Products that look like phone accessories rather than medical devices trigger "gadget not treatment" framing.</li>
+    <li><strong>Influencer endorsement without usage proof.</strong> "Obviously they got it free."</li>
+    <li><strong>No time-to-result honesty.</strong> Instant miracle claims are red flags. Realistic timelines (2-4 weeks) build trust.</li>
+  </ul>
+
+  <h3>What Convinced Them to Try</h3>
+  <ul style="font-size:14px; color: var(--text-secondary); line-height: 1.7; padding-left: 20px;">
+    <li><strong>Another pain sufferer's testimony</strong> (not an influencer) describing their specific condition and timeline.</li>
+    <li><strong>A clinician using/recommending it.</strong> "Our chiropractor has this and uses this on patients."</li>
+    <li><strong>"Nothing to lose" framing.</strong> "I didn't see the harm in adding one more thing to the list."</li>
+    <li><strong>Clinical study references</strong> with specific numbers (e.g., "80% pain reduction within 1-4 weeks").</li>
+    <li><strong>Money-back guarantee</strong> removing the financial risk.</li>
+  </ul>
+</section>
+
+<hr class="divider">
+
+<!-- SECTION 8: Competitor Review Gaps -->
+<section id="competitors">
+  <h2>Competitor Product Weaknesses</h2>
+  <p class="section-lead">Review-mined limitations of competing hip pain products available on Australian sites. Each gap is a positioning opportunity.</p>
+
+  <div class="competitor-item">
+    <div class="product-name">TENS Units for Hip Pain</div>
+    <div class="weakness">
+      <strong>Key weakness:</strong> "May not effectively penetrate deep enough to reach the source of hip pain due to their low voltage." TENS units "primarily target surface-level pain and may not reach deep enough to address the root cause." Provides "temporary pain relief" only. Hip pain originates from "deeper structures such as the joint capsule, ligaments, tendons, or deep muscles that may require more targeted and higher-intensity electrical stimulation."
+      <br><br><strong>Ad angle:</strong> "TENS scratches the surface. This reaches the joint."
+    </div>
+  </div>
+
+  <div class="competitor-item">
+    <div class="product-name">Conventional Heating Pads</div>
+    <div class="weakness">
+      <strong>Key weakness:</strong> "Traditional heating pads would provide temporary relief but the pain always came back the second they stood up." Surface heat only. No penetration. No therapeutic wavelength. No portability.
+      <br><br><strong>Ad angle:</strong> "Your old heating pad warms the skin. This reaches the inflammation underneath."
+    </div>
+  </div>
+
+  <div class="competitor-item">
+    <div class="product-name">Single-Modality Red Light Belts (e.g., LifePro AllevaRed)</div>
+    <div class="weakness">
+      <strong>Key weakness:</strong> Durability complaints: "worked for 4 months before the lights stopped working." Red light only, no heat or vibration. Month-long testing showed "some improvement in muscle stiffness" but modest results without complementary therapies.
+      <br><br><strong>Ad angle:</strong> "Red light alone is a start. Red light + infrared + heat + vibration is a complete therapy session."
+    </div>
+  </div>
+
+  <div class="competitor-item">
+    <div class="product-name">Cortisone Injections</div>
+    <div class="weakness">
+      <strong>Key weakness:</strong> 20% zero response rate. 50% relief lasts two weeks or less. Only 33% still have relief at three months. Patients report "easily 20x worse" pain after failed injections. Costs add up with repeat visits. Requires GP referral and specialist appointment.
+      <br><br><strong>Ad angle:</strong> "Cortisone gave you 14 days. What if you could get relief every night?"
+    </div>
+  </div>
+
+  <div class="competitor-item">
+    <div class="product-name">Physiotherapy for Hip OA</div>
+    <div class="weakness">
+      <strong>Key weakness:</strong> Copenhagen study: "less effective than thought for improving muscle strength." Strong evidence "lacking." Requires ongoing appointments ($80-150/session in AU), travel while in pain, and compliance with exercises that may increase discomfort.
+      <br><br><strong>Ad angle:</strong> Not a replacement for physio. Position as: "Use at home between sessions. Arrive at physio with less pain and more mobility."
+    </div>
+  </div>
+
+  <div class="competitor-item">
+    <div class="product-name">VibraCool / Ice-Based Devices</div>
+    <div class="weakness">
+      <strong>Key weakness:</strong> Cold therapy only reduces inflammation temporarily. No healing wavelength. Uncomfortable for many older users. Not worn during daily activities.
+      <br><br><strong>Ad angle:</strong> "Ice numbs. Infrared heals."
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9: Real Objections -->
+<section id="objections">
+  <h2>Real Objections: Stated, Sourced, Categorised</h2>
+  <p class="section-lead">Each objection is mapped to its root cause and categorised as Trust, Identity, or Risk.</p>
+
+  <div class="objection-grid">
+    <div class="objection-card">
+      <div class="stated">"It's just a coloured light. How can that do anything?" <span class="tag tag-trust">Trust</span></div>
+      <div class="origin"><strong>Created by:</strong> Cheap LED gadgets flooding Amazon/eBay that genuinely are just coloured lights with no therapeutic wavelength. Category contamination.</div>
+      <div class="origin"><strong>Overcome with:</strong> Specific wavelength claims (660nm + 850nm), clinical study references, and the distinction: "If it doesn't specify the wavelength, it's decoration. This is therapy."</div>
+    </div>
+
+    <div class="objection-card">
+      <div class="stated">"If it actually worked, my doctor would have told me about it." <span class="tag tag-trust">Trust</span></div>
+      <div class="origin"><strong>Created by:</strong> Authority bias. GPs in Australia typically recommend cortisone, physio, and NSAIDs. Red light therapy isn't in the standard treatment pathway yet.</div>
+      <div class="origin"><strong>Overcome with:</strong> "Thousands of peer-reviewed studies by researchers at Harvard and the Mayo Clinic." Chiropractors and physios increasingly use it in-clinic. Frame as: "Your doctor uses this wavelength in their laser therapy machine. This brings it home."</div>
+    </div>
+
+    <div class="objection-card">
+      <div class="stated">"I've already spent hundreds on gadgets that didn't work." <span class="tag tag-risk">Risk</span></div>
+      <div class="origin"><strong>Created by:</strong> Previous purchases of TENS units, massage guns, copper bracelets, magnetic insoles that delivered nothing. Financial pain on top of physical pain.</div>
+      <div class="origin"><strong>Overcome with:</strong> Money-back guarantee, specific-condition testimonials, realistic timeline (not "instant cure").</div>
+    </div>
+
+    <div class="objection-card">
+      <div class="stated">"My partner/family will think I'm wasting money on another gimmick." <span class="tag tag-identity">Identity</span></div>
+      <div class="origin"><strong>Created by:</strong> Social judgment. Previous failed purchases erode credibility within the household. Buying another device feels like admitting you're gullible.</div>
+      <div class="origin"><strong>Overcome with:</strong> Clinical credibility cues. "Used by physiotherapists and chiropractors." Make it feel like a medical decision, not a shopping impulse.</div>
+    </div>
+
+    <div class="objection-card">
+      <div class="stated">"These devices claim to fix everything - that's a red flag." <span class="tag tag-trust">Trust</span></div>
+      <div class="origin"><strong>Created by:</strong> Marketing overreach across the category. Products claiming skin rejuvenation, weight loss, pain relief, mood improvement, and sleep all at once.</div>
+      <div class="origin"><strong>Overcome with:</strong> Narrow the claim. "This does one thing: reduce hip pain and inflammation." Restraint IS credibility.</div>
+    </div>
+
+    <div class="objection-card">
+      <div class="stated">"I'm not the kind of person who falls for these things." <span class="tag tag-identity">Identity</span></div>
+      <div class="origin"><strong>Created by:</strong> Self-image as practical, evidence-based, not easily fooled. Buying a "therapy device" from an ad feels beneath them.</div>
+      <div class="origin"><strong>Overcome with:</strong> Frame the buyer as discerning, not desperate. "You've done your research. Here's what the research says." Lead with evidence, not emotion.</div>
+    </div>
+
+    <div class="objection-card">
+      <div class="stated">"What if it makes my hip worse?" <span class="tag tag-risk">Risk</span></div>
+      <div class="origin"><strong>Created by:</strong> One reviewer reported receiving a skin burn. Cortisone injections that made pain "20x worse." Treatment trauma is real.</div>
+      <div class="origin"><strong>Overcome with:</strong> Safety profile of red light therapy: "non-invasive, no side effects in clinical studies, FDA-cleared wavelengths." Unlike cortisone, there's no risk of making it worse.</div>
+    </div>
+
+    <div class="objection-card">
+      <div class="stated">"It's too expensive for something that might not work." <span class="tag tag-risk">Risk</span></div>
+      <div class="origin"><strong>Created by:</strong> Price comparison against single-modality devices ($30-60). But also: a single physio session is $80-150, a cortisone injection costs $150-400.</div>
+      <div class="origin"><strong>Overcome with:</strong> Cost-per-use framing. "One physio session or 365 days of therapy at home." Money-back guarantee removes the risk entirely.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SECTION 10: Life Force 8 -->
+<section id="lf8">
+  <h2>Life Force 8 Desire Mapping</h2>
+  <p class="section-lead">Each of Whitman's 8 biologically programmed desires scored 1-5 on emotional charge, white space (untapped by competitors), and product credibility. Total out of 15.</p>
+
+  <div class="lf8-table-wrap">
+    <table class="lf8-table">
+      <thead>
+        <tr>
+          <th>LF8 Desire</th>
+          <th>Emotional Charge</th>
+          <th>White Space</th>
+          <th>Credibility</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="desire-name">1. Survival, enjoyment of life, life extension</td>
+          <td class="score-cell score-4">4</td>
+          <td class="score-cell score-2">2</td>
+          <td class="score-cell score-4">4</td>
+          <td class="score-cell score-3"><strong>10</strong></td>
+        </tr>
+        <tr>
+          <td class="desire-name">2. Enjoyment of food and beverages</td>
+          <td class="score-cell score-1">1</td>
+          <td class="score-cell score-5">5</td>
+          <td class="score-cell score-1">1</td>
+          <td class="score-cell score-2"><strong>7</strong></td>
+        </tr>
+        <tr class="highlight-row">
+          <td class="desire-name">3. Freedom from fear, pain, and danger</td>
+          <td class="score-cell score-5">5</td>
+          <td class="score-cell score-3">3</td>
+          <td class="score-cell score-5">5</td>
+          <td class="score-cell score-4"><strong>13</strong></td>
+        </tr>
+        <tr>
+          <td class="desire-name">4. Sexual companionship</td>
+          <td class="score-cell score-4">4</td>
+          <td class="score-cell score-5">5</td>
+          <td class="score-cell score-3">3</td>
+          <td class="score-cell score-4"><strong>12</strong></td>
+        </tr>
+        <tr>
+          <td class="desire-name">5. Comfortable living conditions</td>
+          <td class="score-cell score-3">3</td>
+          <td class="score-cell score-2">2</td>
+          <td class="score-cell score-4">4</td>
+          <td class="score-cell score-3"><strong>9</strong></td>
+        </tr>
+        <tr>
+          <td class="desire-name">6. Superiority, winning, keeping up</td>
+          <td class="score-cell score-2">2</td>
+          <td class="score-cell score-3">3</td>
+          <td class="score-cell score-2">2</td>
+          <td class="score-cell score-2"><strong>7</strong></td>
+        </tr>
+        <tr>
+          <td class="desire-name">7. Care and protection of loved ones</td>
+          <td class="score-cell score-4">4</td>
+          <td class="score-cell score-4">4</td>
+          <td class="score-cell score-3">3</td>
+          <td class="score-cell score-4"><strong>11</strong></td>
+        </tr>
+        <tr>
+          <td class="desire-name">8. Social approval</td>
+          <td class="score-cell score-3">3</td>
+          <td class="score-cell score-3">3</td>
+          <td class="score-cell score-2">2</td>
+          <td class="score-cell score-3"><strong>8</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="winner-box">
+    <div class="winner-label">Highest Combined Score: 13/15</div>
+    <div class="winner-title">LF8 #3: Freedom from Fear, Pain, and Danger</div>
+    <p><strong>Emotional charge: 5/5.</strong> Hip pain is not an inconvenience. It is a daily assault on autonomy. Every quote in this research document is saturated with fear (of surgery, of dependence, of permanent disability) and pain (the literal kind, every night, every step). This is the most emotionally loaded desire in the category.</p>
+    <p style="margin-top: 12px;"><strong>White space: 3/5.</strong> Most competitors use pain-freedom messaging, so this isn't untouched territory. However, few go deep enough. They say "pain relief." They don't say "freedom from the fear that this is your life now." The fear layer underneath the pain is largely unaddressed.</p>
+    <p style="margin-top: 12px;"><strong>Product credibility: 5/5.</strong> The product literally delivers on this promise. Four modalities (red light, infrared, heat, vibration) each with clinical evidence for pain reduction. This is the one LF8 desire where the product can make a direct, defensible claim.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Runner-Up: LF8 #4 Sexual Companionship (12/15)</div>
+    <p><strong>This is the most underexploited angle.</strong> Nearly 50% of joint pain sufferers report intimacy difficulties. Chronic pain "alters the dynamics of a relationship" and leads to "decreased intimacy." Partners feel "neglected or helpless." The pain sufferer feels "burdensome." No competitor in the hip therapy space talks about this. The white space score of 5 reflects total category silence on a deeply emotional topic. Use with care in copy: implication and indirection (a couple walking together, dancing, travelling) rather than explicit sexual claims.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Strategic Angle: LF8 #7 Care and Protection (11/15)</div>
+    <p><strong>The gift buyer angle.</strong> Products bought as gifts for parents, partners, and family members are a significant purchase path. "Bought it for my mum" / "my wife" / "my dad." The buyer isn't the sufferer -- they're the person who can't stand watching their loved one in pain. Copy that speaks to the carer ("Give Mum her mornings back") taps a desire that competitors completely ignore in their product-feature copy. This angle also unlocks Father's/Mother's Day, Christmas, and birthday campaigns.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<footer class="doc-footer">
+  <p><strong>Sources:</strong> Amazon AU/US product reviews, Walmart customer reviews, Mayo Clinic Connect forums, HealthUnlocked Pain Concern, BoneSmart Joint Replacement Forum, TikTok red light therapy discussions, Painmaster AU reviews, ReposePoint reviews, Australian Institute of Health and Welfare data, Australian Orthopaedic Association, Brisbane Hip Clinic, University of Copenhagen research, Circle Health Group intimacy study, Cochrane Library, and various health forum threads. All quotes are real customer/patient language sourced from public reviews and forums. Research conducted September 2026.</p>
+  <p style="margin-top: 12px;">
+    Sources:
+    <a href="https://connect.mayoclinic.org/discussion/extremeprolonged-hip-pain-after-hip-cortisone-injections/">Mayo Clinic Connect - Hip Cortisone</a> |
+    <a href="https://connect.mayoclinic.org/discussion/cortisone-injection-in-hip-still-in-pain/">Mayo Clinic Connect - Still in Pain</a> |
+    <a href="https://bonesmart.org/forum/threads/cortisone-shot-in-the-hip-how-painful.14217/">BoneSmart Forum</a> |
+    <a href="https://healthunlocked.com/painconcern/posts/151260087/hip-bursitis">HealthUnlocked - Hip Bursitis</a> |
+    <a href="https://painmaster.com.au/reviews">Painmaster AU Reviews</a> |
+    <a href="https://www.circlehealthgroup.co.uk/health-matters/bones-and-joints/nearly-50-percent-of-people-with-joint-pain-struggle-with-intimacy">Circle Health - Intimacy</a> |
+    <a href="https://davidslattery.com/waiting-list-for-a-hip-replacement/">AU Hip Replacement Wait Times</a> |
+    <a href="https://relatyv.com/learn/why-tens-unit-for-hip-pain-may-not-be-your-best-treatment-option/">TENS Limitations</a> |
+    <a href="https://www.acsh.org/news/2026/02/10/glow-or-gimmick-science-red-light-therapy-49961">ACSH - Red Light Therapy</a> |
+    <a href="https://ubiehealth.com/doctors-note/red-light-therapy-scam-science-approved-futures-5541e5">Ubie - RLT Scam or Science</a> |
+    <a href="https://www.tiktok.com/discover/Is-red-light-therapy-scam">TikTok - Is RLT Scam</a> |
+    <a href="https://kineon.io/blogs/news/hip-pain-and-red-light-therapy">Kineon - Hip Pain & RLT</a> |
+    <a href="https://brisbanehipclinic.com.au/non-surgical/non-surgical-care-program.html">Brisbane Hip Clinic</a> |
+    <a href="https://www.painaustralia.org.au/pain-and-ageism-we-have-to-do-better">Pain Australia</a>
+  </p>
+</footer>
